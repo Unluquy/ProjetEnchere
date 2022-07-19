@@ -40,11 +40,11 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>HelloServlet</servlet-name>
-        <servlet-class>fr.eni.projetenchere.servlet.HelloServlet</servlet-class>
+        <servlet-name>ServletConnection</servlet-name>
+        <servlet-class>fr.eni.projetenchere.servlet.ServletConnection</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>HelloServlet</servlet-name>
+        <servlet-name>ServletConnection</servlet-name>
         <url-pattern>/connect</url-pattern>
     </servlet-mapping>
 
