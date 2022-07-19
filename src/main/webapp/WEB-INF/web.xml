@@ -13,15 +13,9 @@
         <servlet-name>ServletListes</servlet-name>
         <url-pattern>/listes</url-pattern>
     </servlet-mapping>
+
     <display-name>TPListesCourses</display-name>
-    <welcome-file-list>
-        <welcome-file>index.html</welcome-file>
-        <welcome-file>index.htm</welcome-file>
-        <welcome-file>index.jsp</welcome-file>
-        <welcome-file>default.html</welcome-file>
-        <welcome-file>default.htm</welcome-file>
-        <welcome-file>default.jsp</welcome-file>
-    </welcome-file-list>
+
     <servlet>
         <description></description>
         <display-name>ServletPanier</display-name>
@@ -33,6 +27,7 @@
         <url-pattern>/panier</url-pattern>
         <url-pattern>/clear</url-pattern>
     </servlet-mapping>
+
     <servlet>
         <description></description>
         <display-name>ServletNouvelle</display-name>
@@ -43,4 +38,17 @@
         <servlet-name>ServletNouvelle</servlet-name>
         <url-pattern>/nouvelle</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>HelloServlet</servlet-name>
+        <servlet-class>fr.eni.projetenchere.servlet.HelloServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HelloServlet</servlet-name>
+        <url-pattern>/index</url-pattern>
+    </servlet-mapping>
+
+    <welcome-file-list>
+        <welcome-file>index</welcome-file>  <!-- nom d'un url pattern -->
+    </welcome-file-list>
 </web-app>
