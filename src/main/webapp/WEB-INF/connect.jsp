@@ -10,6 +10,7 @@
 <html>
 <head>
     <title>JSP - Connect</title>
+    <link href="${pageContext.request.contextPath }/css/pageConnect.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <div>
