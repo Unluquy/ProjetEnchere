@@ -12,12 +12,8 @@
     <title>JSP - Connect</title>
 </head>
 <body>
-<div class="nav">
-
-</div>
-
 <div>
-    <%@include file="/pageConnect.html"%>
+    <%@include file="pageConnect.html"%>
 </div>
 
 

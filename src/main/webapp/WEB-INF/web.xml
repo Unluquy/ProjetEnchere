@@ -45,10 +45,10 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>HelloServlet</servlet-name>
-        <url-pattern>/index</url-pattern>
+        <url-pattern>/connect</url-pattern>
     </servlet-mapping>
 
     <welcome-file-list>
-        <welcome-file>index</welcome-file>  <!-- nom d'un url pattern -->
+        <welcome-file>connect</welcome-file>  <!-- nom d'un url pattern -->
     </welcome-file-list>
 </web-app>
