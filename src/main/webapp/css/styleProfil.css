@@ -1,0 +1,57 @@
+
+.navBar{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.logo{
+    text-decoration: none;
+    color: black;
+    position: absolute;
+    left: 25%;
+    top: 12%;
+
+}
+.container{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 150px;
+}
+
+.formConnexion{
+    width: 850px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    max-height: 260px;
+    flex-wrap: wrap;
+
+}
+
+label{
+    display: flex;
+    margin: 10px;
+    height: 25px;
+
+}
+
+input{
+    margin-left: 10px;
+    box-shadow: 3px 2px 0px 1px;
+}
+
+.containerButton{
+    width: 470px;
+    position: absolute;
+    left: 43%;
+    top: 55%;
+    display: flex;
+    justify-content: space-between;
+
+}
+.button{
+    width: 170px;
+    height: 50px;
+}
