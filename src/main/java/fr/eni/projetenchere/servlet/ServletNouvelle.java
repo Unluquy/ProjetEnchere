@@ -14,7 +14,7 @@ public class ServletNouvelle extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String idListeParam = request.getParameter("id_liste");
+/*        String idListeParam = request.getParameter("id_liste");
         if(idListeParam != null) { //la liste existe déjà, on ne fait que supprimer un article
             ListeCourses nouvelleListe = null;
             int idListe = Integer.parseInt(idListeParam);
@@ -28,20 +28,20 @@ public class ServletNouvelle extends HttpServlet {
         }
 
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/nouvelle.jsp");
-        rd.forward(request, response);
+        rd.forward(request, response);*/
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+/*
         String nomListe = request.getParameter("nom_liste");
 
         String nomArticle = request.getParameter("nom_article");
 
-        /*
+        *//*
          * Si la requête arrive avec un id_liste dans ses paramètres,
          * c'est que l'on ajoute un article,
          * sinon on crée une nouvelle liste avec un 1er articles
-         */
+         *//*
         String idListeParam = request.getParameter("id_liste");
         ListeCourses nouvelleListe = null;
         if(idListeParam != null) { //la liste existe déjà, on ne fait qu'ajouter un article
@@ -55,6 +55,6 @@ public class ServletNouvelle extends HttpServlet {
         request.setAttribute("nouvelleListe", nouvelleListe);
 
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/nouvelle.jsp");
-        rd.forward(request, response);
+        rd.forward(request, response);*/
     }
 }

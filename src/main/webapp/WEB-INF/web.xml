@@ -3,41 +3,6 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
-    <servlet>
-        <description></description>
-        <display-name>ServletListes</display-name>
-        <servlet-name>ServletListes</servlet-name>
-        <servlet-class>fr.eni.projetenchere.servlet.ServletListe</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>ServletListes</servlet-name>
-        <url-pattern>/listes</url-pattern>
-    </servlet-mapping>
-
-    <display-name>TPListesCourses</display-name>
-
-    <servlet>
-        <description></description>
-        <display-name>ServletPanier</display-name>
-        <servlet-name>ServletPanier</servlet-name>
-        <servlet-class>fr.eni.projetenchere.servlet.ServletPanier</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>ServletPanier</servlet-name>
-        <url-pattern>/panier</url-pattern>
-        <url-pattern>/clear</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <description></description>
-        <display-name>ServletNouvelle</display-name>
-        <servlet-name>ServletNouvelle</servlet-name>
-        <servlet-class>fr.eni.projetenchere.servlet.ServletNouvelle</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>ServletNouvelle</servlet-name>
-        <url-pattern>/nouvelle</url-pattern>
-    </servlet-mapping>
 
     <servlet>
         <servlet-name>ServletConnection</servlet-name>
@@ -46,6 +11,15 @@
     <servlet-mapping>
         <servlet-name>ServletConnection</servlet-name>
         <url-pattern>/connect</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ServletInscription</servlet-name>
+        <servlet-class>fr.eni.projetenchere.servlet.ServletInscription</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletInscription</servlet-name>
+        <url-pattern>/profil</url-pattern>
     </servlet-mapping>
 
     <welcome-file-list>

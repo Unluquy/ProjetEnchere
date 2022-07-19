@@ -4,6 +4,7 @@ import java.util.List;
 
 import fr.eni.projetenchere.bo.Article;
 import fr.eni.projetenchere.bo.ListeCourses;
+import fr.eni.projetenchere.bo.Utilisateur;
 import fr.eni.projetenchere.dal.DAOFactory;
 
 public class EnchereManager {
@@ -18,28 +19,28 @@ public class EnchereManager {
         }
         return instance;
     }
-
+/*
     public List<ListeCourses> getListes() {
-        return DAOFactory.getListeCoursesDAO().selectAll();
+        return DAOFactory.getListeEnchereDAO().selectAll();
     }
 
     public void supprimerListe(int id) {
         //TODO : vérification id
-        DAOFactory.getListeCoursesDAO().delete(id);
+        DAOFactory.getListeEnchereDAO().delete(id);
     }
 
     public ListeCourses getListe(int id) {
         //TODO : vérification id
 
-        return DAOFactory.getListeCoursesDAO().selectById(id);
+        return DAOFactory.getListeEnchereDAO().selectById(id);
     }
 
     public void cocheOuDecocheArticle(int idArticle, boolean estCoche) {
-        DAOFactory.getListeCoursesDAO().cocheOuDecoche(idArticle, estCoche);
+        DAOFactory.getListeEnchereDAO().cocheOuDecoche(idArticle, estCoche);
     }
 
     public void decocheTout(int idListe) {
-        DAOFactory.getListeCoursesDAO().decocheTout(idListe);
+        DAOFactory.getListeEnchereDAO().decocheTout(idListe);
     }
 
     public ListeCourses insererListeEtArticle(String nomListe, String nomArticle) {
@@ -49,7 +50,7 @@ public class EnchereManager {
         Article a = new Article(nomArticle);
         nouvelleListe.ajouterArticle(a);
 
-        DAOFactory.getListeCoursesDAO().insert(nouvelleListe);
+        DAOFactory.getListeEnchereDAO().insert(nouvelleListe);
 
         return nouvelleListe;
     }
@@ -59,11 +60,11 @@ public class EnchereManager {
         //TODO vérifier les données
 
         //on recupère la liste en cours de création dans la BDD
-        ListeCourses nouvelleListe = DAOFactory.getListeCoursesDAO().selectById(id);
+        ListeCourses nouvelleListe = DAOFactory.getListeEnchereDAO().selectById(id);
 
         //on lui ajoute l'article
         Article a = new Article(nomArticle);
-        DAOFactory.getListeCoursesDAO().insertArticle(a, id);
+        DAOFactory.getListeEnchereDAO().insertArticle(a, id);
         nouvelleListe.ajouterArticle(a);
 
         return nouvelleListe;
@@ -71,7 +72,17 @@ public class EnchereManager {
 
     public void supprimerArticle(int idArticle) {
         //TODO vérifier données
-        DAOFactory.getListeCoursesDAO().deleteArticle(idArticle);
+        DAOFactory.getListeEnchereDAO().deleteArticle(idArticle);
+    }*/
+
+    public void insertUser(Utilisateur user) {
+        DAOFactory.getListeEnchereDAO().insertUser(user);
+        System.out.println("PASSER manager");
     }
 
+    public Utilisateur getUser(String pseudoSaisie) {
+
+
+        return DAOFactory.getListeEnchereDAO().getUser(pseudoSaisie);
+    }
 }

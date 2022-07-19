@@ -12,19 +12,19 @@
   <a class="logo" href="./accueil.jsp"> <strong>ENI-Enchères</strong> </a>
 </nav>
 <div class="container">     <!-- Formulaire simple qui enverra une requête GET -->
-  <form class="formConnexion" method="get">
+  <form class="formConnexion" method="POST">
     <label>Identifiant:
-      <input name="submitted-name" autocomplete="name">
+      <input name="identifiant" autocomplete="name">
     </label>
 
 
     <!-- Formulaire qui enverra une requête POST à l'URL actuelle -->
 
     <label>Mot de passe:
-      <input name="submitted-name" autocomplete="name">
+      <input name="motDePasse" autocomplete="name">
     </label>
     <div class="containerConnect">
-      <button class="buttonConnect">Connexion</button>
+      <button class="buttonConnect" method="submit">Connexion</button>
       <div class="motDePass">
         <label><input type="radio" name="radio">Se souvenir de moi</label>
 
@@ -35,7 +35,7 @@
     <!-- Formulaire avec un ensemble de champs, une légende et une étiquette -->
 
 
-    <button class="creeCompte">Créer un compte</button>
+    <a class="creeCompte" href="${pageContext.request.contextPath }/profil">Créer un compte</a>
 
 
   </form>

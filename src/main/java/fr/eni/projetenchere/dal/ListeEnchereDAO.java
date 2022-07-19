@@ -4,6 +4,7 @@ import java.util.List;
 
 import fr.eni.projetenchere.bo.Article;
 import fr.eni.projetenchere.bo.ListeCourses;
+import fr.eni.projetenchere.bo.Utilisateur;
 
 public class ListeEnchereDAO {
     public List<ListeCourses> selectAll() {
@@ -29,4 +30,8 @@ public class ListeEnchereDAO {
     void insertArticle(Article a, int id){};
 
     void deleteArticle(int idArticle){};
+
+    void insertUser(Utilisateur user){};
+
+    Utilisateur getUser(String pseudo){return null;};
 }

@@ -10,31 +10,83 @@ import java.util.List;
 
 import fr.eni.projetenchere.bo.Article;
 import fr.eni.projetenchere.bo.ListeCourses;
+import fr.eni.projetenchere.bo.Utilisateur;
 
 public class ListeEncheresJdbcImpl {
-    private final static String SELECT_ALL = "SELECT * FROM ListesCourse";
 
-    private final static String DELETE = "DELETE FROM ListesCourse WHERE idListe = ?";
 
-    private final static String SELECT_BY_ID =  "SELECT * FROM ListesCourse " +
-            "INNER JOIN Articles ON idListe=liste " +
-            "WHERE idListe = ?";
+    private final static String INSERT_USER = "INSERT INTO UTILISATEURS(pseudo,nom,prenom,email,telephone,rue,code_postal,ville,mot_de_passe, credit, administrateur) VALUES(?,?,?,?,?,?,?,?,?,1000,0)";
 
-    private final static String CHECK = "UPDATE Articles SET coche=? WHERE idArticle=?";
+    private final static String SELECT_USER = "SELECT pseudo, mot_de_passe FROM UTILISATEURS WHERE pseudo = ?";
 
-    private final static String UNCHECK_ALL = "UPDATE Articles SET coche=0 WHERE liste=?";
+    public void insertUser (Utilisateur user){
+        try(Connection cnx = ConnectionProvider.getConnection()) {
+            try{
+                cnx.setAutoCommit(false);
 
-    private final static String INSERT_LISTE = "INSERT INTO ListesCourse(nom) VALUES(?)";
 
-    private final static String INSERT_ARTICLE = "INSERT INTO Articles(nomArticle,liste) VALUES(?,?)";
 
-    private final static String DELETE_ARTICLE = "DELETE FROM Articles WHERE idArticle = ?";
+                PreparedStatement pStmt = cnx.prepareStatement(INSERT_USER);
+                pStmt.setString(1, user.getPseudo());
+                pStmt.setString(2, user.getNom());
+                pStmt.setString(3, user.getPrenom());
+                pStmt.setString(4, user.getEmail());
+                pStmt.setString(5, user.getTelephone());
+                pStmt.setString(6, user.getRue());
+                pStmt.setString(7, user.getCode_postal());
+                pStmt.setString(8, user.getVille());
+                pStmt.setString(9, user.getMot_de_passe());
 
+                pStmt.executeUpdate();
+
+                System.out.println("PASSER Jdbc");
+
+                cnx.commit();
+
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public Utilisateur getUser(String pseudo){
+
+        Utilisateur user = new Utilisateur();
+
+        try(Connection cnx = ConnectionProvider.getConnection()) {
+            try{
+
+                PreparedStatement pStmt = cnx.prepareStatement(SELECT_USER);
+                pStmt.setString(1, pseudo);
+                ResultSet rs = pStmt.executeQuery();
+
+                while(rs.next()) {
+                    user.setPseudo(rs.getString("pseudo"));
+                    user.setMot_de_passe(rs.getString("mot_de_passe"));
+                }
+
+
+
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return user;
+    }
+/*
 
     public List<ListeCourses> selectAll() {
         List<ListeCourses> listes = new ArrayList<>();
 
         try(Connection cnx = ConnectionProvider.getConnection()) {
+
+
             Statement stmt = cnx.createStatement();
             ResultSet rs = stmt.executeQuery(SELECT_ALL);
             while(rs.next()) {
@@ -173,5 +225,6 @@ public class ListeEncheresJdbcImpl {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 }
+

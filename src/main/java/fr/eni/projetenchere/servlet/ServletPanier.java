@@ -14,7 +14,7 @@ public class ServletPanier extends HttpServlet {
 
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+/*
         //Si id_article est présent dans les paramètres, on coche/décoche l'article correspondant
         String idArticleSaisi = request.getParameter("id_article");
         if(idArticleSaisi != null) {
@@ -53,7 +53,7 @@ public class ServletPanier extends HttpServlet {
         request.setAttribute("uneListe", uneListe);
 
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/panier.jsp");
-        rd.forward(request, response);
+        rd.forward(request, response);*/
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

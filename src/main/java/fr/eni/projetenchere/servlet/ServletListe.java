@@ -15,7 +15,7 @@ public class ServletListe extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        //Si on reçoit un id en paramètre dans l'URL, c'est que l'on veut supprimer une liste
+/*        //Si on reçoit un id en paramètre dans l'URL, c'est que l'on veut supprimer une liste
         String idListe = request.getParameter("id");
         if(idListe != null) {
             int id = 0;
@@ -36,7 +36,7 @@ public class ServletListe extends HttpServlet {
         request.setAttribute("listes", listes);
 
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/listes.jsp");
-        rd.forward(request, response);
+        rd.forward(request, response);*/
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
