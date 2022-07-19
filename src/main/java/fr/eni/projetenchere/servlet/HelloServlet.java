@@ -1,4 +1,4 @@
-package fr.eni.projetenchere;
+package fr.eni.projetenchere.servlet;
 
 import java.io.*;
 import javax.servlet.http.*;
