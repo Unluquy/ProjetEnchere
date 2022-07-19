@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>body</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../css/pageConnect.css">
+</head>
+<body>
+<nav class="navBar">
+  <a class="logo" href="./accueil.jsp"> <strong>ENI-Enchères</strong> </a>
+</nav>
+<div class="container">     <!-- Formulaire simple qui enverra une requête GET -->
+  <form class="formConnexion" method="get">
+    <label>Identifiant:
+      <input name="submitted-name" autocomplete="name">
+    </label>
+
+
+    <!-- Formulaire qui enverra une requête POST à l'URL actuelle -->
+
+    <label>Mot de passe:
+      <input name="submitted-name" autocomplete="name">
+    </label>
+    <div class="containerConnect">
+      <button class="buttonConnect">Connexion</button>
+      <div class="motDePass">
+        <label><input type="radio" name="radio">Se souvenir de moi</label>
+
+        <a href="WEB-INF/accueil.jsp">Mot de passe oublié</a>
+      </div>
+    </div>
+
+    <!-- Formulaire avec un ensemble de champs, une légende et une étiquette -->
+
+
+    <button class="creeCompte">Créer un compte</button>
+
+
+  </form>
+</div>
+</body>
+</html>

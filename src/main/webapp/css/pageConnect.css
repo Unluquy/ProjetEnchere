@@ -1,0 +1,68 @@
+/*!
+ * Start Bootstrap - 4 Col Portfolio (https://startbootstrap.com/template-overviews/4-col-portfolio)
+ * Copyright 2013-2017 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-4-col-portfolio/blob/master/LICENSE)
+ */
+
+nav{
+    width: 100%;
+}
+.navBar{
+    display: flex;
+    margin-left: 150px;
+    margin-top: 30px;
+}
+
+.logo{
+    text-decoration: none;
+    color: black;
+
+}
+.container{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 150px;
+}
+
+.formConnexion{
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+label{
+    display: flex;
+    margin: 10px;
+    height: 25px;
+
+}
+
+input{
+    margin-left: 10px;
+    box-shadow: 1px 1px 0px 1px;
+}
+.containerConnect{
+    display: flex;
+    align-items: flex-end;
+}
+.buttonConnect{
+    height: 50px;
+    width: 100px;
+    box-shadow: 1px 2px 2px 2px;
+}
+.motDePass{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 10px;
+    height: 50px;
+}
+.creeCompte{
+    width: 290px;
+    margin-top: 40px;
+    height: 70px;
+    box-shadow: 1px 2px 2px 2px;
+}
