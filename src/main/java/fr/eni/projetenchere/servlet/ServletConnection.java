@@ -10,6 +10,9 @@ import java.io.PrintWriter;
 public class ServletConnection extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/connect.jsp");
+        rd.forward(request, response);
         response.setContentType("text/html");
 
         // Hello
