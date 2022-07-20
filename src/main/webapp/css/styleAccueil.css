@@ -3,6 +3,16 @@
   justify-content: center;
   flex-wrap: wrap;
 }
+.containerCheck{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+}
+.check{
+    margin: 25px;
+}
+
 .card{
   margin: 15px;
 }

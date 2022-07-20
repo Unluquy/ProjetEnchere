@@ -5,9 +5,9 @@
     <div class="topnav" id="myTopnav">
         <a href="#home" class="active">ENI-Enchères</a>
         <a href="#news">S'inscrire</a>
-        <a href="#contact">Se connecter</a>
+        <a href="#">Se connecter</a>
         
-        <h1>Liste des enchère</h1>
+        <h1>Liste des enchères</h1>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
           <i class="fa fa-bars"></i>
         </a>
@@ -32,6 +32,63 @@
         </form>
       </div>
 
+    <div class="containerCheck">
+
+        <div class="check">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioAchats" id="flexRadioAchats" checked>
+                <label class="form-check-label" for="flexRadioAchats">
+                    Achats
+                </label>
+            </div>
+
+            <!-- Checked checkbox -->
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" name="CheckEncheresOuvertes" id="CheckEncheresOuvertes" checked/>
+                <label class="form-check-label" for="CheckEncheresOuvertes">enchères ouvertes</label>
+            </div>
+            <!-- Default checkbox -->
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" name="CheckEncheresEnCours" id="CheckEncheresEnCours" />
+                <label class="form-check-label" for="CheckEncheresEnCours">mes enchères en cours</label>
+            </div>
+            <!-- Default checkbox -->
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" name="CheckEncheresRemportées" id="CheckEncheresRemportées" />
+                <label class="form-check-label" for="CheckEncheresRemportées">mes enchères remportées </label>
+            </div>
+
+        </div>
+
+        <div class="check">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioVentes" id="flexRadioVentes">
+                <label class="form-check-label" for="flexRadioVentes">
+                    Mes ventes
+                </label>
+            </div>
+
+            <!-- Default checkbox -->
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" name="CheckVentesEnCours" id="CheckVentesEnCours" />
+                <label class="form-check-label" for="CheckVentesEnCours">mes ventes en cours</label>
+            </div>
+
+            <!-- Default checkbox -->
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" name="CheckVentesNonDebutees" id="CheckVentesNonDebutees" />
+                <label class="form-check-label" for="CheckVentesNonDebutees">ventes non débutées </label>
+            </div>
+            <!-- Default checkbox -->
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" name="CheckVentesTerminees" id="CheckVentesTerminees" />
+                <label class="form-check-label" for="CheckVentesTerminees">ventes terminées </label>
+            </div>
+
+        </div>
+
+
+    </div>
 
  
 
