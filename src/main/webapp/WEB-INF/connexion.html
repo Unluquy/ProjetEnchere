@@ -18,33 +18,36 @@
             <div class="col-12 col-md-8 col-lg-6 col-xl-5">
               <div class="card shadow-2-strong" style="border-radius: 1rem;">
                 <div class="card-body p-5 text-center" style="background-color: #f0eeee;">
-      
-                  <h1>Connexion</h1>
-      
-                  <div class="form-outline mb-4">
-                    <input type="pseudo" id="typeEmailX-2" class="form-control form-control-lg" />
-                    <label class="form-label" for="typeEmailX-2">Email/Pseudo</label>
-                  </div>
-      
-                  <div class="form-outline mb-4">
-                    <input type="password" id="typePasswordX-2" class="form-control form-control-lg" />
-                    <label class="form-label" for="typePasswordX-2">Password</label>
-                  </div>
-      
-                  <!-- Checkbox -->
-                  <div class="form-check d-flex justify-content-start mb-4">
-                    <input class="form-check-input" type="checkbox" value="" id="form1Example3" />
-                    <label class="form-check-label" for="form1Example3"> Se souvenir de moi</label>
-                  </div><div class="col">
+                  <form method="POST">
+                    <h1>Connexion</h1>
+
+                    <p>${errorString}</p>
+
+                    <div class="form-outline mb-4">
+                      <input type="text" id="typeEmailX-2" name="identifiant" class="form-control form-control-lg" required/>
+                      <label class="form-label" for="typeEmailX-2">Email/Pseudo</label>
+                    </div>
+
+                    <div class="form-outline mb-4">
+                      <input type="password" id="typePasswordX-2" name="password" class="form-control form-control-lg" required/>
+                      <label class="form-label" for="typePasswordX-2">Password</label>
+                    </div>
+
+                    <!-- Checkbox -->
+                    <div class="form-check d-flex justify-content-start mb-4">
+                      <input class="form-check-input" type="checkbox" value="" id="form1Example3" />
+                      <label class="form-check-label" for="form1Example3"> Se souvenir de moi</label>
+                    </div><div class="col">
                     <!-- Simple link -->
                     <a href="#!">Mot de passe oublié</a>
                   </div>
+
+                    <button class="btn btn-success btn-lg btn-block" type="submit">Connexion</button>
+                    <a href="${pageContext.request.contextPath }/inscription" class="btn btn-success btn-lg btn-block" type="submit">Créer un compte</a>
+
+                  </form>
       
-                  <button class="btn btn-success btn-lg btn-block" type="submit">Connexion</button>
-                  <a href="${pageContext.request.contextPath }/inscription" class="btn btn-success btn-lg btn-block" type="submit">Créer un compte</a>
-      
-                
-                 
+
                 </div>
               </div>
             </div>

@@ -7,11 +7,9 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.SQLException;
 
 @WebServlet(name = "ServletConnection", value = "/ServletConnection")
-public class ServletConnection extends HttpServlet {
+public class ServletConnexion extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/connexion.jsp");
@@ -25,7 +23,7 @@ public class ServletConnection extends HttpServlet {
 
         /*Get credentials from form*/
         String pseudoSaisie     = request.getParameter("identifiant");
-        String motDePasseSaisie = request.getParameter("motDePasse");
+        String motDePasseSaisie = request.getParameter("password");
 
         boolean hasError = false;
         String errorString = "";

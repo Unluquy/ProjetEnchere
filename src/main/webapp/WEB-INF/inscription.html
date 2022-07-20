@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="FR-fr">
 
 
 
@@ -21,60 +21,66 @@
             <div class="col-12 col-md-8 col-lg-6 col-xl-5">
               <div class="card shadow-2-strong" style="border-radius: 1rem;">
                 <div class="card-body p-5 text-center" style="background-color: #f0eeee;">
-                  <h1>Créer un Compte</h1>
-                  <div class="form-outline mb-4">
-                    <input type="text" id="Pseudo" class="form-control form-control-lg" />
-                    <label class="form-label" >Pseudo</label>
-                  </div>
-                  <div class="form-outline mb-4">
-                    <input type="text" id="Nom" class="form-control form-control-lg" />
-                    <label class="form-label" >Nom</label>
-                  </div>
-      
-                  <div class="form-outline mb-4">
-                    <input type="text" id="Prénom" class="form-control form-control-lg" />
-                    <label class="form-label" >Prénom</label>
-                  </div>
-      
-      
-                  <div class="form-outline mb-4">
-                    <input type="text" id="email" class="form-control form-control-lg" />
-                    <label class="form-label" for="typeEmailX-2">Email/Pseudo</label>
-                  </div>
+                  <form method="POST">
 
-                  <div class="form-outline mb-4">
-                    <input type="number" id="Prénom" class="form-control form-control-lg" />
-                    <label class="form-label" >Téléphone</label>
-                  </div>
-                  <div class="form-outline mb-4">
-                    <input type="text" id="Prénom" class="form-control form-control-lg" />
-                    <label class="form-label" >Rue</label>
-                  </div>
-                  <div class="form-outline mb-4">
-                    <input type="text" id="Prénom" class="form-control form-control-lg" />
-                    <label class="form-label" >Code postal</label>
-                  </div>
-                  <div class="form-outline mb-4">
-                    <input type="text" id="Prénom" class="form-control form-control-lg" />
-                    <label class="form-label" >Ville</label>
-                  </div>
-      
-                  <div class="form-outline mb-4">
-                    <input type="password" id="typePasswordX-2" class="form-control form-control-lg" />
-                    <label class="form-label" for="typePasswordX-2">Mot de passe</label>
-                  </div>
-                  <div class="form-outline mb-4">
-                    <input type="password" id="typePasswordX-2" class="form-control form-control-lg" />
-                    <label class="form-label" for="typePasswordX-2">Confirmation</label>
-                  </div>
-      
-                  
-      
-                  <button class="btn btn-success btn-lg btn-block" type="submit">Créer</button>
-                  <button class="btn btn-success btn-lg btn-block" type="submit">Annuler</button>
-      
-                
-                 
+                    <h1>Créer un Compte</h1>
+
+                    <p>${errorString}</p>
+
+                    <div class="form-outline mb-4">
+                      <input type="text" id="Pseudo" name="pseudo" class="form-control form-control-lg" maxlength="10" required/>
+                      <label class="form-label" for="Pseudo">Pseudo</label>
+                    </div>
+
+                    <div class="form-outline mb-4">
+                      <input type="text" id="Nom" name="nom" class="form-control form-control-lg" required/>
+                      <label class="form-label" for="Nom">Nom</label>
+                    </div>
+
+                    <div class="form-outline mb-4">
+                      <input type="text" id="Prénom" name="prenom" class="form-control form-control-lg" required/>
+                      <label class="form-label" for="Prénom">Prénom</label>
+                    </div>
+
+
+                    <div class="form-outline mb-4">
+                      <input type="text" id="Email" name="email" class="form-control form-control-lg" required/>
+                      <label class="form-label" for="Email">Email</label>
+                    </div>
+
+                    <div class="form-outline mb-4">
+                      <input type="tel" id="Telephone" name="telephone" class="form-control form-control-lg" pattern="[0-9]{10}" />
+                      <label class="form-label" for="Telephone">Téléphone</label>
+                    </div>
+
+                    <div class="form-outline mb-4">
+                      <input type="text" id="Rue" name="rue" class="form-control form-control-lg" required/>
+                      <label class="form-label" for="Rue">Rue</label>
+                    </div>
+                    <div class="form-outline mb-4">
+                      <input type="text" id="Code Postal" name="codePostal" class="form-control form-control-lg" required/>
+                      <label class="form-label" for="Code Postal">Code postal</label>
+                    </div>
+                    <div class="form-outline mb-4">
+                      <input type="text" id="Ville" name="ville" class="form-control form-control-lg" required/>
+                      <label class="form-label" for="Ville" >Ville</label>
+                    </div>
+
+                    <div class="form-outline mb-4">
+                      <input type="password" id="Password" name="password" class="form-control form-control-lg" required/>
+                      <label class="form-label" for="Password">Mot de passe</label>
+                    </div>
+                    <div class="form-outline mb-4">
+                      <input type="password" id="ConfirmPassword" name="confirmPassword" class="form-control form-control-lg" required/>
+                      <label class="form-label" for="ConfirmPassword">Confirmation</label>
+                    </div>
+
+
+
+                    <button class="btn btn-success btn-lg btn-block" type="submit">Créer</button>
+                    <a href="${pageContext.request.contextPath }/connexion" class="btn btn-success btn-lg btn-block">Annuler</a>
+
+                  </form>
                 </div>
               </div>
             </div>

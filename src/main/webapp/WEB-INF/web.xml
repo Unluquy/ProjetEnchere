@@ -6,7 +6,7 @@
 
     <servlet>
         <servlet-name>ServletConnection</servlet-name>
-        <servlet-class>fr.eni.projetenchere.servlet.ServletConnection</servlet-class>
+        <servlet-class>fr.eni.projetenchere.servlet.ServletConnexion</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ServletConnection</servlet-name>
