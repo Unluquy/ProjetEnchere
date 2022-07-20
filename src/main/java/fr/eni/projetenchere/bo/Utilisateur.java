@@ -14,7 +14,7 @@ public class Utilisateur {
     private String ville;
     private String mot_de_passe;
     private int credit;
-    private BitSet admin;
+    private byte admin;
 
     public int getNo_utilisateur() {
         return no_utilisateur;
@@ -104,11 +104,11 @@ public class Utilisateur {
         this.credit = credit;
     }
 
-    public BitSet getAdmin() {
+    public byte getAdmin() {
         return admin;
     }
 
-    public void setAdmin(BitSet admin) {
+    public void setAdmin(byte admin) {
         this.admin = admin;
     }
 

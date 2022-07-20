@@ -23,6 +23,9 @@ public class ServletInscription extends HttpServlet {
         /*Create user with and get info*/
         Utilisateur user = new Utilisateur();
 
+        boolean hasError = false;
+        String errorString = "";
+
         String pseudoSaisie     = request.getParameter("pseudo");
         String prenomSaisie     = request.getParameter("prenom");
         String nomSaisie        = request.getParameter("nom");
@@ -33,20 +36,41 @@ public class ServletInscription extends HttpServlet {
         String villeSaisie      = request.getParameter("ville");
         String motDePasseSaisie = request.getParameter("userPassword");
 
-        /*If nothing empty then put infos into user and send it to DB*/
+        /*If nothing empty then put check if user is in DB*/
         if (pseudoSaisie.length() != 0 && prenomSaisie.length() != 0 && nomSaisie.length() != 0 && emailSaisie.length() != 0 && rueSaisie.length() != 0 && codePostalSaisie.length() != 0 && villeSaisie.length() != 0 && motDePasseSaisie.length() != 0 ){
 
-            user.setPseudo(pseudoSaisie);
-            user.setNom(nomSaisie);
-            user.setPrenom(prenomSaisie);
-            user.setEmail(emailSaisie);
-            user.setRue(rueSaisie);
-            user.setCode_postal(codePostalSaisie);
-            user.setVille(villeSaisie);
-            user.setMot_de_passe(motDePasseSaisie);
-            user.setTelephone(telephoneSaisie);
+            Utilisateur userCheck = EnchereManager.getInstance().getUser(pseudoSaisie);
 
-            EnchereManager.getInstance().insertUser(user);
+            /*If not identitcal user, create user ; else send back to Inscription with error msg*/
+            if(userCheck == null){
+                user.setPseudo(pseudoSaisie);
+                user.setNom(nomSaisie);
+                user.setPrenom(prenomSaisie);
+                user.setEmail(emailSaisie);
+                user.setRue(rueSaisie);
+                user.setCode_postal(codePostalSaisie);
+                user.setVille(villeSaisie);
+                user.setMot_de_passe(motDePasseSaisie);
+                user.setTelephone(telephoneSaisie);
+
+                EnchereManager.getInstance().insertUser(user);
+            } else if (emailSaisie.equals(userCheck.getEmail())){
+                hasError = true;
+                errorString = "Email deja existante";
+            } else {
+                hasError = true;
+                errorString = "Pseudo deja existant";
+            }
+
+        }else {
+            hasError = true;
+            errorString = "Veuillez remplir les champs";
+        }
+
+        if(hasError){
+            request.setAttribute("errorString", errorString);
+            RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/inscription.jsp");
+            rd.forward(request, response);
         }
 
     }

@@ -17,7 +17,12 @@ public class EnchereManager {
         DAOFactory.getListeEnchereDAO().insertUser(user);
     }
 
-    public Utilisateur getUser(String pseudoSaisie, String passwordSaisie) {
-        return DAOFactory.getListeEnchereDAO().getUser(pseudoSaisie, passwordSaisie);
+    public Utilisateur connectUser(String pseudoSaisie, String passwordSaisie) {
+        return DAOFactory.getListeEnchereDAO().connectUser(pseudoSaisie, passwordSaisie);
+    }
+
+
+    public Utilisateur getUser(String pseudoSaisie) {
+        return DAOFactory.getListeEnchereDAO().getUser(pseudoSaisie);
     }
 }

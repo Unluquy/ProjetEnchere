@@ -35,7 +35,7 @@ public class ServletConnection extends HttpServlet {
 
             /*try to find the user in the DB*/
             try {
-                Utilisateur user = EnchereManager.getInstance().getUser(pseudoSaisie, motDePasseSaisie);
+                Utilisateur user = EnchereManager.getInstance().connectUser(pseudoSaisie, motDePasseSaisie);
 
                 if (user == null) {
                     hasError = true;
