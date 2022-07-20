@@ -19,5 +19,6 @@
 </head>
 <body>
 <%@include file="accueil.html"%>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/fonction.js"></script>
 </body>
 </html>
