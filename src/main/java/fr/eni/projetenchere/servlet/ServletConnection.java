@@ -14,7 +14,7 @@ import java.sql.SQLException;
 public class ServletConnection extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/connect.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/connexion.jsp");
         rd.forward(request, response);
         response.setContentType("text/html");
 
@@ -57,7 +57,7 @@ public class ServletConnection extends HttpServlet {
         } else {
 
             request.setAttribute("errorString", errorString);
-            RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/connect.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/connexion.jsp");
             rd.forward(request, response);
         }
 
