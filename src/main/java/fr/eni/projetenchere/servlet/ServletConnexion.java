@@ -39,7 +39,6 @@ public class ServletConnexion extends HttpServlet {
                     hasError = true;
                     errorString = "Pseudo ou Mot de passe invalide(s)";
                 }
-
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
@@ -52,6 +51,8 @@ public class ServletConnexion extends HttpServlet {
         /*Connect if no error otherwise send back to connect.jsp with error message*/
         if(!hasError){
             System.out.println("Connected");
+            RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/accueil.jsp");
+            rd.forward(request, response);
         } else {
 
             request.setAttribute("errorString", errorString);
