@@ -14,6 +14,7 @@
 </head>
 <body>
 
+    <p style="items-center:center;text-align:center;text-color:red">${errorString}</p>
     <%@include file="pageConnect.html"%>
 
 

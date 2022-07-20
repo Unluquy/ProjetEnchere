@@ -8,36 +8,59 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 
 @WebServlet(name = "ServletConnection", value = "/ServletConnection")
 public class ServletConnection extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/connect.jsp");
         rd.forward(request, response);
         response.setContentType("text/html");
-
-
-        System.out.println("PASSER doGET");
 
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
-        String pseudoSaisie = request.getParameter("identifiant");
+        /*Get credentials from form*/
+        String pseudoSaisie     = request.getParameter("identifiant");
         String motDePasseSaisie = request.getParameter("motDePasse");
 
-        Utilisateur user=  EnchereManager.getInstance().getUser(pseudoSaisie);
+        boolean hasError = false;
+        String errorString = "";
 
-        if (pseudoSaisie.equals(user.getPseudo()) && motDePasseSaisie.equals(user.getMot_de_passe())){
-            System.out.println("connected");
+        /*verify if the user wrote credentials*/
+        if (!(pseudoSaisie.isEmpty() || motDePasseSaisie.isEmpty())) {
+
+            /*try to find the user in the DB*/
+            try {
+                Utilisateur user = EnchereManager.getInstance().getUser(pseudoSaisie, motDePasseSaisie);
+
+                if (user == null) {
+                    hasError = true;
+                    errorString = "Pseudo ou Mot de passe invalide(s)";
+                }
+
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+
         } else {
-            System.out.println("not connected");
-
+            hasError = true;
+            errorString = "Pseudo ou mot de passe necessaires";
         }
+
+        /*Connect if no error otherwise send back to connect.jsp with error message*/
+        if(!hasError){
+            System.out.println("Connected");
+        } else {
+
+            request.setAttribute("errorString", errorString);
+            RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/connect.jsp");
+            rd.forward(request, response);
+        }
+
 
 
     }
