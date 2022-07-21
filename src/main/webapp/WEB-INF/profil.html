@@ -1,40 +1,136 @@
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/styleProfil.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <title>Profil</title>
 </head>
 
+<body>
+<!-- Navigation -->
+<div class="topnav" id="myTopnav">
+    <a href="">
+        <h1>ENI_Enchères</h1></a>
 
-     
-    <div class="title">
-        <!--<a class="logo" href="./accueil.jsp"> <strong>ENI-Enchères</strong> </a>-->
-        <h1>Créer un compte</h1>
+
+    <h2 class="titre">Mon profil</h2>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+    </a>
+</div>
+
+<input type="checkbox" id="ham-menu">
+<label for="ham-menu">
+    <div class="hide-des">
+        <span class="menu-line"></span>
+        <span class="menu-line"></span>
+        <span class="menu-line"></span>
+        <span class="menu-line"></span>
+        <span class="menu-line"></span>
+        <span class="menu-line"></span>
     </div>
- 
- 
-    <div class="container">
-        <ul>
-            <li>Pseudo:</li>
-            <li>Nom:</li>
-            <li>Prénom:</li>
-            <li>Email:</li>
-            <li>Téléphone:</li>
-            <li>Rue:</li>
-            <li>Code Postal:</li>
-            <li>Ville:</li>
-        </ul>
-        <ul>
-            <li>${pseudo}</li>
-            <li>${nom}</li>
-            <li>${prenom}</li>
-            <li>${email}</li>
-            <li>${telephone}</li>
-            <li>${rue}</li>
-            <li>${code_postal}</li>
-            <li>${ville}</li>
-        </ul>
+
+</label>
+<div class="full-page-green"></div>
+<div class="ham-menu">
+    <ul class="centre-text bold-text">
+        <li>Enchères</li>
+        <li>Vendre un article</li>
+        <li>Mon profil</li>
+        <li>Déconnexion</li>
+    </ul>
+</div>
+<!-- Fin Navigation -->
+<div class="container">
+    <div class="main-body">
+
+<h1>Mon profil</h1>
+
+        <div class="row gutters-sm">
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex flex-column align-items-center text-center">
+                            <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                            <div class="mt-3">
+                                <h4>Pseudo: ${pseudo}</h4>
+                                <p class="text-secondary mb-1">Crédit : ${credit}</p>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-8">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Nom</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                ${nom}
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Prénom</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                ${prenom}
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Email</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                ${email}
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Téléphone</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                ${telephone}
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Address</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                ${rue},${code_postal},${ville}
+                            </div>
+
+                        </div>
+                        <hr>
+
+
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <a class="btn btn-info " target="__blank" href="">Modifier</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
 
     </div>
+</div>
+</body>
+</html>
