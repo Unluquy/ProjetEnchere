@@ -3,68 +3,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styleProfil.css">
+    <link rel="stylesheet" href="../css/styleProfil.css">
     <title>Document</title>
 </head>
 
 
      
-    <div class="navBar">
-        <a class="logo" href="./accueil.jsp"> <strong>ENI-Enchères</strong> </a>
-   <h1>Créer un compte</h1>
-  </div> 
+    <div class="title">
+        <!--<a class="logo" href="./accueil.jsp"> <strong>ENI-Enchères</strong> </a>-->
+        <h1>Créer un compte</h1>
+    </div>
  
  
     <div class="container">
-        
-        <!-- Formulaire simple qui enverra une requête GET -->
-        <form class="formConnexion" method="POST">
-            <label>Pseudo:
-                <input name="pseudo" autocomplete="name">
-            </label>
+        <ul>
+            <li>Pseudo:</li>
+            <li>Nom:</li>
+            <li>Prénom:</li>
+            <li>Email:</li>
+            <li>Téléphone:</li>
+            <li>Rue:</li>
+            <li>Code Postal:</li>
+            <li>Ville:</li>
+        </ul>
+        <ul>
+            <li>${pseudo}</li>
+            <li>${nom}</li>
+            <li>${prenom}</li>
+            <li>${email}</li>
+            <li>${telephone}</li>
+            <li>${rue}</li>
+            <li>${code_postal}</li>
+            <li>${ville}</li>
+        </ul>
 
-
-
-            <label>Prénom:
-                <input name="prenom" autocomplete="name">
-            </label>
-            <label>téléphone:
-                <input name="telephone" autocomplete="name">
-            </label>
-            <label>Code postal:
-                <input name="codePostal" autocomplete="name">
-            </label>
-            <label for="userPassword">Mot de passe:
-                <input name="userPassword" id="userPassword" type="password" autocomplete="name">
-            </label>
-
-
-            <label>Nom:
-                <input name="nom" autocomplete="name">
-            </label>
-            <label>Email:
-                <input type="email" id="email" name="email" autocomplete="name">
-            </label>
-            <label>Rue:
-                <input name="rue" autocomplete="name">
-            </label>
-            <label>Ville:
-                <input name="ville" autocomplete="name">
-            </label>
-
-
-            <label for="confirmationPassword">Confirmation:
-                <input name="confimationPassword" id="confirmationPassword" type="password" autocomplete="name">
-            </label>
-            <div class="containerButton">
-                <label>
-                    <input class="button" type="submit" name="submitted-name" autocomplete="name" value="Créer">
-                </label>
-
-                <label>
-                    <input class="button" type="submit" name="submitted-name" autocomplete="name" value="Annuler">
-                </label>
-            </div>
-
-        </form>
     </div>

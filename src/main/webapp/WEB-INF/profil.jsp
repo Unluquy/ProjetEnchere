@@ -12,7 +12,6 @@
     <title>Profil</title>
 </head>
 <body>
-<p>${errorString}</p>
 <%@include file="profil.html"%>
 
 </body>

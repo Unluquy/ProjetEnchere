@@ -10,7 +10,6 @@ public class ServletAccueil extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-        System.out.println(session.getAttribute("pseudoUser"));
 
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/accueil.jsp");
         rd.forward(request, response);
@@ -24,7 +23,6 @@ public class ServletAccueil extends HttpServlet {
 
         if(request.getParameter("disconnect") != null){
             session.setAttribute("pseudoUser", null);
-            System.out.println("Accueil disconnected");
 
             RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/accueil.jsp");
             rd.forward(request, response);

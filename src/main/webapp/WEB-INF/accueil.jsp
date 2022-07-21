@@ -31,7 +31,7 @@
         <div style="float:right !important;display:flex;align-items:center;">
             <a href="#news">Enchères</a>
             <a href="#news">Vendre un article</a>
-            <a href="#news">Mon profil</a>
+            <a href="${pageContext.request.contextPath}/profil">Mon profil</a>
             <form method="post"><button name="disconnect" type="submit" style="align-items:center;">Déconnexion</button></form>
         </div>
 

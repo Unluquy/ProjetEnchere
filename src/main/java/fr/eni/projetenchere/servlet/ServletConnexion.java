@@ -60,6 +60,7 @@ public class ServletConnexion extends HttpServlet {
             System.out.println("Connected");
 
             HttpSession session = request.getSession();
+            System.out.println("[ServletConnexion] " + pseudoSaisie);
             session.setAttribute("pseudoUser", pseudoSaisie);
             response.sendRedirect("accueil" );
         } else {

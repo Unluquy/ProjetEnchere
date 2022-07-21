@@ -72,10 +72,15 @@ public class ListeEncheresJdbcImpl{
         return null;
     }
 
+    /**
+     * @return user
+     * */
     public Utilisateur getUser(String pseudo){
 
         Utilisateur user = new Utilisateur();
         try(Connection cnx = ConnectionProvider.getConnection()) {
+
+            System.out.println("[JDBC] Entered getuser");
 
             PreparedStatement pStmt = cnx.prepareStatement(SELECT_USER);
             pStmt.setString(1, pseudo);
