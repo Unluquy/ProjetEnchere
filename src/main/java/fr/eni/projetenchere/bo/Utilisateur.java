@@ -13,6 +13,7 @@ public class Utilisateur {
     private String code_postal;
     private String ville;
     private String mot_de_passe;
+    private String hash;
     private int credit;
     private byte admin;
 
@@ -112,6 +113,14 @@ public class Utilisateur {
         this.admin = admin;
     }
 
+    public String getHash() {
+        return hash;
+    }
+
+    public void setHash(String hash) {
+        this.hash = hash;
+    }
+
     public Utilisateur() {
 
     }
@@ -121,8 +130,8 @@ public class Utilisateur {
         this.pseudo = pseudo;
     }
 
-    public Utilisateur(String pseudo, String nom, String prenom, String email, String telephone, String rue, String code_postal, String ville, String mot_de_passe) {
-        this();
+    public Utilisateur(int no_utilisateur, String pseudo, String nom, String prenom, String email, String telephone, String rue, String code_postal, String ville, String mot_de_passe, String hash, int credit, byte admin) {
+        this.no_utilisateur = no_utilisateur;
         this.pseudo = pseudo;
         this.nom = nom;
         this.prenom = prenom;
@@ -132,6 +141,9 @@ public class Utilisateur {
         this.code_postal = code_postal;
         this.ville = ville;
         this.mot_de_passe = mot_de_passe;
+        this.hash = hash;
+        this.credit = credit;
+        this.admin = admin;
     }
 
     @Override
@@ -147,6 +159,7 @@ public class Utilisateur {
                 ", code_postal='" + code_postal + '\'' +
                 ", ville='" + ville + '\'' +
                 ", mot_de_passe='" + mot_de_passe + '\'' +
+                ", hash='" + hash + '\'' +
                 ", credit=" + credit +
                 ", admin=" + admin +
                 '}';

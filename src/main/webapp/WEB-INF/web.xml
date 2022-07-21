@@ -50,6 +50,6 @@
     </servlet-mapping>
 
     <welcome-file-list>
-        <welcome-file>connexion</welcome-file>  <!-- nom d'un url pattern -->
+        <welcome-file>accueil</welcome-file>  <!-- nom d'un url pattern -->
     </welcome-file-list>
 </web-app>

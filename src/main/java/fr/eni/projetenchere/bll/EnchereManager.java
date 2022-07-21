@@ -17,8 +17,8 @@ public class EnchereManager {
         DAOFactory.getListeEnchereDAO().insertUser(user);
     }
 
-    public Utilisateur connectUser(String pseudoSaisie, String passwordSaisie) {
-        return DAOFactory.getListeEnchereDAO().connectUser(pseudoSaisie, passwordSaisie);
+    public Utilisateur connectUser(String pseudoSaisie) {
+        return DAOFactory.getListeEnchereDAO().connectUser(pseudoSaisie);
     }
 
 

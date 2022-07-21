@@ -8,9 +8,9 @@ import fr.eni.projetenchere.bo.Utilisateur;
 
 public class ListeEncheresJdbcImpl{
 
-    private final static String INSERT_USER = "INSERT INTO UTILISATEURS(pseudo,nom,prenom,email,telephone,rue,code_postal,ville,mot_de_passe, credit, administrateur) VALUES(?,?,?,?,?,?,?,?,?,1000,0)";
+    private final static String INSERT_USER = "INSERT INTO UTILISATEURS(pseudo,nom,prenom,email,telephone,rue,code_postal,ville,mot_de_passe,salt,credit, administrateur) VALUES(?,?,?,?,?,?,?,?,?,?,1000,0)";
 
-    private final static String CONNECT_USER = "SELECT pseudo, mot_de_passe FROM UTILISATEURS WHERE pseudo = ? and mot_de_passe = ?";
+    private final static String CONNECT_USER = "SELECT pseudo, mot_de_passe, salt FROM UTILISATEURS WHERE pseudo = ?";
 
     private final static String SELECT_USER = "SELECT * FROM UTILISATEURS WHERE pseudo=?";
 
@@ -29,6 +29,7 @@ public class ListeEncheresJdbcImpl{
                 pStmt.setString(7, user.getCode_postal());
                 pStmt.setString(8, user.getVille());
                 pStmt.setString(9, user.getMot_de_passe());
+                pStmt.setString(10, user.getHash());
 
                 pStmt.executeUpdate();
 
@@ -43,7 +44,7 @@ public class ListeEncheresJdbcImpl{
         }
     }
 
-    public Utilisateur connectUser(String pseudo, String password){
+    public Utilisateur connectUser(String pseudo){
 
         Utilisateur user = new Utilisateur();
 
@@ -51,12 +52,12 @@ public class ListeEncheresJdbcImpl{
 
             PreparedStatement pStmt = cnx.prepareStatement(CONNECT_USER);
                 pStmt.setString(1, pseudo);
-                pStmt.setString(2, password);
                 ResultSet rs = pStmt.executeQuery();
 
                 while(rs.next()) {
                     user.setPseudo(rs.getString("pseudo"));
                     user.setMot_de_passe(rs.getString("mot_de_passe"));
+                    user.setHash(rs.getString("salt"));
                     return user;
                 }
 

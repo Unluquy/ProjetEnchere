@@ -9,11 +9,21 @@ import java.io.IOException;
 public class ServletAccueil extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        System.out.println(session.getAttribute("pseudoUser"));
+
+        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/accueil.jsp");
+        rd.forward(request, response);
+
 
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        System.out.println("Deconnexion");
+    }
+
+    protected void disconnect(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
 }

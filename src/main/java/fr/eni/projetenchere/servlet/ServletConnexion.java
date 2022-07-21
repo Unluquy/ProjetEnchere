@@ -7,6 +7,11 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
+import java.security.SecureRandom;
+import java.util.Arrays;
 
 @WebServlet(name = "ServletConnection", value = "/ServletConnection")
 public class ServletConnexion extends HttpServlet {
@@ -33,9 +38,11 @@ public class ServletConnexion extends HttpServlet {
 
             /*try to find the user in the DB*/
             try {
-                Utilisateur user = EnchereManager.getInstance().connectUser(pseudoSaisie, motDePasseSaisie);
+                Utilisateur user = EnchereManager.getInstance().connectUser(pseudoSaisie);
+                /*get hash from db to compare the password*/
+                String saltDB = user.getHash();
 
-                if (user == null) {
+                if (user == null || getSecurePassword(motDePasseSaisie,saltDB).equals(getSecurePassword(user.getMot_de_passe(), saltDB))) {
                     hasError = true;
                     errorString = "Pseudo ou Mot de passe invalide(s)";
                 }
@@ -51,10 +58,13 @@ public class ServletConnexion extends HttpServlet {
         /*Connect if no error otherwise send back to connect.jsp with error message*/
         if(!hasError){
             System.out.println("Connected");
+
+            HttpSession session = request.getSession();
+            session.setAttribute("pseudoUser", pseudoSaisie);
+
             RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/accueil.jsp");
             rd.forward(request, response);
         } else {
-
             request.setAttribute("errorString", errorString);
             RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/connexion.jsp");
             rd.forward(request, response);
@@ -62,5 +72,44 @@ public class ServletConnexion extends HttpServlet {
 
 
 
+    }
+
+    protected static String getSalt() throws NoSuchAlgorithmException, NoSuchProviderException {
+
+        /*SHA1PRNG algorithm is a strong pseudo - random number generator based on the SHA-! message-digest algorithm*/
+        SecureRandom sr = SecureRandom.getInstance("SHA1PRNG", "SUN");
+
+        /*create array for salt*/
+        byte[] salt = new byte[16];
+
+        /*get random salt*/
+        sr.nextBytes(salt);
+
+        return Arrays.toString(salt);
+    }
+
+    protected static String getSecurePassword(String passwordToHash, String salt){
+        String generatedPassword = null;
+
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+
+            md.update(salt.getBytes());
+
+            byte[] bytes = md.digest(passwordToHash.getBytes());
+
+            StringBuilder sb = new StringBuilder();
+
+            for (byte aByte : bytes) {
+                sb.append(Integer.toString((aByte & 0xff) + 0x100, 16).substring(1));
+            }
+
+            generatedPassword = sb.toString();
+
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
+
+        return generatedPassword;
     }
 }
