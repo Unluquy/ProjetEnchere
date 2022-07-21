@@ -44,6 +44,9 @@ public class ListeEncheresJdbcImpl{
         }
     }
 
+    /**
+     * <p>Connect the user</p>
+     * */
     public Utilisateur connectUser(String pseudo){
 
         Utilisateur user = new Utilisateur();
