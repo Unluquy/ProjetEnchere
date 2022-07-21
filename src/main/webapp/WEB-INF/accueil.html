@@ -1,10 +1,14 @@
+
 <!DOCTYPE html>
 <html lang="fr">
-
+<head>
+    <meta charset="UTF-8" />
+</head>
 <body>
+<!--
     <div class="topnav" id="myTopnav">
         <a href="#home" class="active">ENI-Enchères</a>
-        <a href="#news">S'inscrire</a>
+      <a href="#news">S'inscrire</a>
         <a href="#">Se connecter</a>
         
         <h1>Liste des enchères</h1>
@@ -12,9 +16,10 @@
           <i class="fa fa-bars"></i>
         </a>
       </div>
+-->
 
       <div class="container">
-        <form action="/recherche/" method="get">
+        <form action="/recherche/" method="POST">
           <fieldset>    
             <div class="input-group">
               <div class="input-group-prepend">
@@ -98,7 +103,7 @@
 
  <div class="containerCard">
       <div class="card" style="width: 18rem;">
-        <img src="../image/pc.jpg" class="card-img-top" alt="...">
+        <img src="${pageContext.request.contextPath }/image/pc.jpg" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">PC Gamer pour travailler</h5>
           <p class="card-text">Prix : 210 points</p>
@@ -108,7 +113,7 @@
       </div>
       
       <div class="card" style="width: 18rem;">
-        <img src="../image/pc.jpg" class="card-img-top" alt="...">
+        <img src="${pageContext.request.contextPath }/image/pc.jpg" class="card-img-top" alt="...">
         <h5 class="card-title">PC Gamer pour travailler</h5>
           <p class="card-text">Prix : 210 points</p>
           <p class="card-text">Fin de l'enchère : 29/07/2022</p>
