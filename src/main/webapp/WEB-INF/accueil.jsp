@@ -60,6 +60,28 @@
 
 
 <%@include file="accueil.html"%>
+
+
+
+<SCRIPT LANGUAGE="JavaScript">
+    <!--
+    function moveNext()
+    {
+        var counter = 0
+        counter = parseInt(document.form1.hidden.value) + 1
+        document.form1.hidden.value = counter
+        form1.submit()
+    }
+    function movePrevious()
+    {
+        var counter = 0
+        counter = parseInt(document.form1.hidden.value) - 1
+        document.form1.hidden.value = counter
+        form1.submit()
+    }
+    // -->
+</SCRIPT>
+
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/fonction.js"></script>
 </body>
 </html>

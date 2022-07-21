@@ -14,8 +14,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
   <link href="${pageContext.request.contextPath }/css/styleConnexion.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath }/css/navBar.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+<%@include file="navBar.html"%>
 <%@include file="connexion.html"%>
 </body>
 </html>
