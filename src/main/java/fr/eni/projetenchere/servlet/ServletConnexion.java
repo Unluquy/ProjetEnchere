@@ -61,9 +61,7 @@ public class ServletConnexion extends HttpServlet {
 
             HttpSession session = request.getSession();
             session.setAttribute("pseudoUser", pseudoSaisie);
-
-            RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/accueil.jsp");
-            rd.forward(request, response);
+            response.sendRedirect("accueil" );
         } else {
             request.setAttribute("errorString", errorString);
             RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/connexion.jsp");

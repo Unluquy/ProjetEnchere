@@ -20,10 +20,15 @@ public class ServletAccueil extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("Deconnexion");
+        HttpSession session = request.getSession();
+
+        if(request.getParameter("disconnect") != null){
+            session.setAttribute("pseudoUser", null);
+            System.out.println("Accueil disconnected");
+
+            RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/accueil.jsp");
+            rd.forward(request, response);
+        }
     }
 
-    protected void disconnect(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
 }

@@ -8,7 +8,7 @@ import fr.eni.projetenchere.bo.Utilisateur;
 
 public class ListeEncheresJdbcImpl{
 
-    private final static String INSERT_USER = "INSERT INTO UTILISATEURS(pseudo,nom,prenom,email,telephone,rue,code_postal,ville,mot_de_passe,salt,credit, administrateur) VALUES(?,?,?,?,?,?,?,?,?,?,1000,0)";
+    private final static String INSERT_USER = "INSERT INTO UTILISATEURS(pseudo,nom,prenom,email,telephone,rue,code_postal,ville,mot_de_passe,salt,credit,administrateur) VALUES(?,?,?,?,?,?,?,?,?,?,1000,0)";
 
     private final static String CONNECT_USER = "SELECT pseudo, mot_de_passe, salt FROM UTILISATEURS WHERE pseudo = ?";
 
