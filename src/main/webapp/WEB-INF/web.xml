@@ -49,6 +49,16 @@
         <url-pattern>/modifProfil</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>ServletNouvelleVente</servlet-name>
+        <servlet-class>fr.eni.projetenchere.servlet.ServletNouvelleVente</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletNouvelleVente</servlet-name>
+        <url-pattern>/nouvelleVente</url-pattern>
+    </servlet-mapping>
+
+
     <welcome-file-list>
         <welcome-file>accueil</welcome-file>  <!-- nom d'un url pattern -->
     </welcome-file-list>

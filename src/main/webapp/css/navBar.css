@@ -43,6 +43,9 @@ body{
 }
 label[for="ham-menu"] {
   display: block;
+  position: absolute;
+  top: 24px;
+  left: 45%;
   z-index: 999;
   width: 60px;
   height: 60px;
