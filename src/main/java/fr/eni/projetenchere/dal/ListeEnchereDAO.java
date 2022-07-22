@@ -11,5 +11,8 @@ public class ListeEnchereDAO {
 	Utilisateur connectUser(String pseudo, String password){return null;}
 
 	Utilisateur getUser(String pseudo){return null;}
-	
+	void deleteUser(String pseudo){}
+	void updateUser(String oldPseudo, Utilisateur newInfo){}
+	void updatePassword(String pseudo, String password, String hash){}
+
 }

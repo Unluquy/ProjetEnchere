@@ -53,10 +53,9 @@ public class ServletInscription extends HttpServlet {
                 throw new RuntimeException(e);
             }
             String securePasswords = getSecurePassword(motDePasseSaisie, salt);
-            System.out.println(salt.length());
 
             /*If not identitcal user, create user ; else send back to Inscription with error msg*/
-            if(userCheck == null){
+            if(userCheck == null || !pseudoSaisie.toLowerCase().equals(userCheck.getPseudo().toLowerCase())){
                 hasError = false;
                 user.setPseudo(pseudoSaisie);
                 user.setNom(nomSaisie);

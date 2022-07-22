@@ -13,6 +13,14 @@ public class ListeEncheresJdbcImpl{
     private final static String CONNECT_USER = "SELECT pseudo, mot_de_passe, salt FROM UTILISATEURS WHERE pseudo = ?";
 
     private final static String SELECT_USER = "SELECT * FROM UTILISATEURS WHERE pseudo=?";
+    private final static String DELETE_USER = "DELETE FROM UTILISATEURS WHERE pseudo=?";
+    private final static String UPDATE_USER = "UPDATE UTILISATEURS " +
+                                              "SET pseudo=?, nom=?, prenom=?, email=?, telephone=?, rue=?, code_postal=?, ville=? "+
+                                              "WHERE pseudo=?";
+    private final static String UPDATE_PASSWORD =   "UPDATE UTILISATEURS " +
+                                                    "SET mot_de_passe = ? , salt = ? "+
+                                                    "WHERE pseudo=?";
+
 
     public void insertUser (Utilisateur user){
         try(Connection cnx = ConnectionProvider.getConnection()) {
@@ -95,6 +103,8 @@ public class ListeEncheresJdbcImpl{
                 user.setRue(rs.getString("rue"));
                 user.setCode_postal(rs.getString("code_postal"));
                 user.setVille(rs.getString("ville"));
+                user.setMot_de_passe(rs.getString("mot_de_passe"));
+                user.setHash(rs.getString("salt"));
                 user.setCredit(rs.getInt("credit"));
                 user.setAdmin(rs.getByte("administrateur"));
 
@@ -107,6 +117,58 @@ public class ListeEncheresJdbcImpl{
             e.printStackTrace();
         }
         return null;
+    }
+
+    public void deleteUser(String pseudo){
+        try(Connection cnx = ConnectionProvider.getConnection()) {
+
+            System.out.println("[JDBC] Deleted user");
+
+            PreparedStatement pStmt = cnx.prepareStatement(DELETE_USER);
+            pStmt.setString(1, pseudo);
+            pStmt.executeUpdate();
+
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void updateUser(String oldPseudo, Utilisateur newInfo){
+        try(Connection cnx = ConnectionProvider.getConnection()) {
+
+            System.out.println("[JDBC] Updated user");
+
+            PreparedStatement pStmt = cnx.prepareStatement(UPDATE_USER);
+            pStmt.setString(1, newInfo.getPseudo());
+            pStmt.setString(2, newInfo.getNom());
+            pStmt.setString(3, newInfo.getPrenom());
+            pStmt.setString(4, newInfo.getEmail());
+            pStmt.setString(5, newInfo.getTelephone());
+            pStmt.setString(6, newInfo.getRue());
+            pStmt.setString(7, newInfo.getCode_postal());
+            pStmt.setString(8, newInfo.getVille());
+            pStmt.setString(9, oldPseudo);
+            pStmt.executeUpdate();
+
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void updatePassword(String pseudo, String password, String hash){
+        try(Connection cnx = ConnectionProvider.getConnection()) {
+            System.out.println("[JDBC] Updated password");
+
+            PreparedStatement pStmt = cnx.prepareStatement(UPDATE_PASSWORD);
+            pStmt.setString(1, password);
+            pStmt.setString(2, hash);
+            pStmt.setString(3, pseudo);
+
+            pStmt.executeUpdate();
+
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
     }
 
 }

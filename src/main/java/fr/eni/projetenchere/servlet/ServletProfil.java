@@ -30,6 +30,7 @@ public class ServletProfil extends HttpServlet {
             request.setAttribute("rue", user.getRue());
             request.setAttribute("code_postal", user.getCode_postal());
             request.setAttribute("ville", user.getVille());
+            request.setAttribute("credit", user.getCredit());
         }
 
         rd.forward(request,response);
