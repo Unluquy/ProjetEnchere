@@ -23,7 +23,7 @@
 
 <header>
     <div class="topnav" id="myTopnav">
-        <a href="${pageContext.request.contextPath}/nouvelleVente" class="color">ENI-Enchères</a>
+        <a href="${pageContext.request.contextPath}/ventePerdu" class="color">ENI-Enchères</a>
 <%--Si un utilisateur est connecte alors afficher les liens sinon afficher S'inscrire / Se connecter--%>
         <%
             if (session.getAttribute("pseudoUser") != null || session.getAttribute("pseudoUser")=="") {

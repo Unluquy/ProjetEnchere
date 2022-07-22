@@ -1,0 +1,196 @@
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link href="${pageContext.request.contextPath }/css/nouvelleArticle.css" rel="stylesheet" type="text/css">
+
+    <title>Vente remporté</title>
+
+
+</head>
+<body>
+<!-- Navigation -->
+<div class="topnav" id="myTopnav">
+    <a href="">
+        <h1>ENI_Enchères</h1>
+    </a>
+
+
+    <h2 class="titre">Vente remporté</h2>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+    </a>
+</div>
+
+<input type="checkbox" id="ham-menu">
+<label for="ham-menu">
+    <div class="hide-des">
+        <span class="menu-line"></span>
+        <span class="menu-line"></span>
+        <span class="menu-line"></span>
+        <span class="menu-line"></span>
+        <span class="menu-line"></span>
+        <span class="menu-line"></span>
+    </div>
+
+</label>
+<div class="full-page-green"></div>
+<div class="ham-menu">
+    <ul class="centre-text bold-text">
+        <li>Enchères</li>
+        <li>Vendre un article</li>
+        <li>Mon profil</li>
+        <li>Déconnexion</li>
+    </ul>
+</div>
+<!-- Fin Navigation -->
+
+
+
+
+<div class="container">
+    <div class="main-body">
+
+
+
+        <div class="row gutters-sm">
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex flex-column align-items-center text-center">
+                            <img src= ${photoArticle} alt="Admin" class="rounded-circle"
+                                 width="150">
+                            <div class="mt-3">
+                                <h4>${pseudo}</h4>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-8">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Nom de l'article</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                ${nom_article}
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Description</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                ${description}
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Catégorie</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                ${categorie}
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Meilleure offre</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+
+                                ${prix_vente}
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Mise à prix</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+
+                                ${prix_initial}
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Fin de l'enchères</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                ${date_fin_encheres}
+                            </div>
+
+                        </div>
+                        <hr>
+
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Retrait</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                ${rue},${code_postal},${ville}
+                            </div>
+                        </div>
+                        <hr>
+
+
+
+
+                        <form action="" method="post">
+
+                            <div class="row">
+
+                                <div class="col-sm-12">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h6 class="mb-0">Ma proposition</h6>
+                                        </div>
+                                        <div class="col-sm-9 text-secondary">
+                                            <input type="number" id="prix_initial" name="prix_initial" placeholder="150" aria-label="prixArticle">
+
+                                        </div>
+
+                                    </div>
+                                    <a class="btn btn-info " target="__blank"
+                                       href="">Enchérir</a>
+
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+
+</div>
+
+</div>
+
+</div>
+</div>
+</body>
+</html>

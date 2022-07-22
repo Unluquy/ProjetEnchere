@@ -236,7 +236,7 @@ body {
   
   .topnav{
     overflow: hidden;
-    background-color: #117a8b;
+    background-color: #117a8b !important;
     display: flex;
     align-items: center;
     height: 55px;
