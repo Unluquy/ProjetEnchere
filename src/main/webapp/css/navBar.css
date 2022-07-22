@@ -234,9 +234,9 @@ body {
     font-family: Arial, Helvetica, sans-serif;
   }
   
-  .topnav {
+  .topnav{
     overflow: hidden;
-    background-color: #04AA6D;
+    background-color: #117a8b;
     display: flex;
     align-items: center;
     height: 55px;

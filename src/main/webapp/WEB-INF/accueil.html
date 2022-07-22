@@ -23,14 +23,14 @@
           <fieldset>    
             <div class="input-group">
               <div class="input-group-prepend">
-                <select id="oCategorie" name="oCategorie" class="custom-select  bg-success text-white">
+                <select id="oCategorie" name="oCategorie" class="custom-select  color text-white">
                   <option selected="selected" value="0">Catégorie</option>
                   <option value="1">...</option>
                 </select>
               </div>
               <input id="oSaisie" name="oSaisie" type="text" class="form-control" aria-label="Saisie de mots clés" placeholder="Mot(s) clé(s)" required="required">
               <div class="input-group-append">
-                <button class="btn btn-success" type="submit">Recherche</button>
+                <button class="btn color" type="submit">Recherche</button>
               </div>
             </div>
           </fieldset> 
@@ -105,10 +105,10 @@
       <div class="card" style="width: 18rem;">
         <img src="${pageContext.request.contextPath }/image/pc.jpg" class="card-img-top" alt="...">
         <div class="card-body">
-          <h5 class="card-title">PC Gamer pour travailler</h5>
-          <p class="card-text">Prix : 210 points</p>
-          <p class="card-text">Fin de l'enchère : 29/07/2022</p>
-          <p class="card-text">Vendeur : tata55</p>
+          <h5 class="card-title">Nom : ${nom_article}</h5>
+          <p class="card-text">Prix : ${prix_initial}</p>
+          <p class="card-text">Fin de l'enchère : ${date_fin_encheres}</p>
+          <p class="card-text">Vendeur :  ${speudo}</p>
         </div>
       </div>
       
