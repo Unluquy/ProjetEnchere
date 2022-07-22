@@ -64,7 +64,7 @@
 
 
 <SCRIPT LANGUAGE="JavaScript">
-    <!--
+
     function moveNext()
     {
         var counter = 0
@@ -79,7 +79,7 @@
         document.form1.hidden.value = counter
         form1.submit()
     }
-    // -->
+
 </SCRIPT>
 
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/fonction.js"></script>

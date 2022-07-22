@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="${pageContext.request.contextPath }/css/navBar.css" rel="stylesheet" type="text/css">
+  <link href="../css/navBar.css" rel="stylesheet" type="text/css">
   <!-- Custom styles for bootstrap navbar -->
 <link href="../../../../../maquette/navBar/navBar.css" rel="stylesheet">
 <!-- Bootstrap CSS -->
@@ -15,37 +15,39 @@
   
 <!-- Navigation -->
 <div class="topnav" id="myTopnav">
-  <a href="">
- <h1>ENI_Enchères</h1></a>
-  
-  
+
   <h2 class="titre">Liste des enchère</h2>
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
   </a>
-</div>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+  <input type="checkbox" id="ham-menu">
+  <label for="ham-menu" class="ham-menu-icon">
+    <div class="hide-des">
+      <span class="menu-line"></span>
+      <span class="menu-line"></span>
+      <span class="menu-line"></span>
+      <span class="menu-line"></span>
+      <span class="menu-line"></span>
+      <span class="menu-line"></span>
+    </div>
+  </label>
 
-<input type="checkbox" id="ham-menu">
-<label for="ham-menu">
-  <div class="hide-des">
-    <span class="menu-line"></span>
-    <span class="menu-line"></span>
-    <span class="menu-line"></span>
-    <span class="menu-line"></span>
-    <span class="menu-line"></span>
-    <span class="menu-line"></span>
+  <div class="full-page-green"></div>
+  <div class="ham-menu">
+    <ul class="centre-text bold-text">
+      <li>Enchères</li>
+      <li>Vendre un article</li>
+      <li>Mon profil</li>
+      <li>Déconnexion</li>
+    </ul>
   </div>
 
-</label>
-<div class="full-page-green"></div>
-<div class="ham-menu">
-  <ul class="centre-text bold-text">
-    <li>Enchères</li>
-    <li>Vendre un article</li>
-    <li>Mon profil</li>
-    <li>Déconnexion</li>
-  </ul>
 </div>
+
+
 <!-- Fin Navigation -->
 
   <!-- StickyNav Js -->

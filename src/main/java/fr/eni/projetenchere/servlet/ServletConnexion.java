@@ -40,9 +40,15 @@ public class ServletConnexion extends HttpServlet {
             try {
                 Utilisateur user = EnchereManager.getInstance().connectUser(pseudoSaisie);
                 /*get hash from db to compare the password*/
-                String saltDB = user.getHash();
+                String saltDB = null;
+                if (user != null) {
+                    saltDB = user.getHash();
+                }
 
-                if (user == null || getSecurePassword(motDePasseSaisie,saltDB).equals(getSecurePassword(user.getMot_de_passe(), saltDB))) {
+                System.out.println(getSecurePassword(motDePasseSaisie, saltDB));
+                System.out.println(user.getMot_de_passe());
+
+                if (user == null || !getSecurePassword(motDePasseSaisie, saltDB).equals(user.getMot_de_passe())) {
                     hasError = true;
                     errorString = "Pseudo ou Mot de passe invalide(s)";
                 }

@@ -43,9 +43,6 @@ body{
 }
 label[for="ham-menu"] {
   display: block;
-  position: fixed;
-  top: 24px;
-  left: 50%;
   z-index: 999;
   width: 60px;
   height: 60px;
@@ -54,7 +51,7 @@ label[for="ham-menu"] {
   border: 2px solid var(--border-color);
 }
 .ham-menu {
-  width: 50vw;
+  width: 25vw;
   height: 100%;
   position: fixed;
   top: 0;
@@ -71,11 +68,11 @@ label[for="ham-menu"] {
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-around;
-  padding: 20px;
-  height: 50%;
+  padding: 10px;
+  height: 35%;
 }
 .ham-menu > ul > li {
-  font-size: 4rem;
+  font-size: 2.8rem;
   white-space: nowrap;
   letter-spacing: 0.15em;
   cursor: pointer;
@@ -132,10 +129,7 @@ label[for="ham-menu"] {
 [for="ham-menu"] > div > span:nth-child(4),
 [for="ham-menu"] > div > span:nth-child(5),
 [for="ham-menu"] > div > span:nth-child(6) {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  border-top-right-radius: 2px;
-  border-bottom-right-radius: 2px;
+  border-radius: 0 2px 2px 0;
   transform-origin: left center;
 }
 #ham-menu:checked + label span {
@@ -163,7 +157,7 @@ p {
   line-height: 1.5em;
   word-spacing: 0.5em;
   letter-spacing: 0.1em;
-  font-family: "OpenSansCondensed-Light";
+  font-family: "OpenSansCondensed-Light", serif;
 }
 
 .text {
@@ -181,6 +175,8 @@ p {
   font-family: "OpenSansCondensed-Bold", sans-serif;
   color: var(--icon-hover-bg);
   padding: 10px;
+  align-items: center;
+
 }
 .heading {
   font-size: 6rem;
@@ -239,9 +235,9 @@ body {
     overflow: hidden;
     background-color: #04AA6D;
     display: flex;
-    justify-content: space-around;
     align-items: center;
     height: 55px;
+    padding: 35px 20px 35px 20px;
   }
   
   .topnav a, form > button{
@@ -274,6 +270,13 @@ body {
    background-color: rgb(185, 185, 185);
   }
 
+.ham-menu-icon{
+  float: right;
+  align-items: flex-end;
+  position: absolute;
+  right:2.4rem;
+
+}
   @media screen and  (max-width: 425px){
     label[for="ham-menu"] {
 
