@@ -25,4 +25,13 @@ public class EnchereManager {
     public Utilisateur getUser(String pseudoSaisie) {
         return DAOFactory.getListeEnchereDAO().getUser(pseudoSaisie);
     }
+    public void deleteUser(String pseudoSaisie) {
+        DAOFactory.getListeEnchereDAO().deleteUser(pseudoSaisie);
+    }
+    public void updateUser(String oldPseudo, Utilisateur newInfo){
+        DAOFactory.getListeEnchereDAO().updateUser(oldPseudo, newInfo);
+    }
+    public void updatePassword(String pseudo, String password, String hash){
+        DAOFactory.getListeEnchereDAO().updatePassword(pseudo, password, hash);
+    }
 }

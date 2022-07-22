@@ -45,8 +45,6 @@ public class ServletConnexion extends HttpServlet {
                     saltDB = user.getHash();
                 }
 
-                System.out.println(getSecurePassword(motDePasseSaisie, saltDB));
-                System.out.println(user.getMot_de_passe());
 
                 if (user == null || !getSecurePassword(motDePasseSaisie, saltDB).equals(user.getMot_de_passe())) {
                     hasError = true;

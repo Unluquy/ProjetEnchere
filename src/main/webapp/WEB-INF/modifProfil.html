@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html lang="fr">
-
+<head>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/modifProfil.css" rel="stylesheet" type="text/css">
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+</head>
 
 
 <body>
   <div class="topnav" id="myTopnav">
     <a href="#home" class="active">ENI-Enchères</a>
-  
+
     
 
     <a href="javascript:void(0);" class="icon" onclick="myFunction()">
@@ -21,59 +30,69 @@
             <div class="col-12 col-md-8 col-lg-6 col-xl-5">
               <div class="card shadow-2-strong" style="border-radius: 1rem;">
                 <div class="card-body p-5 text-center" style="background-color: #f0eeee;">
-                  <h1>Mon profil</h1>
-                  <div class="form-outline ">
-                    <input type="text" id="Pseudo" class="form-control form-control-lg" />
-                    <label class="form-label" >Pseudo</label>
-                  </div>
-                  <div class="form-outline ">
-                    <input type="text" id="Nom" class="form-control form-control-lg" />
-                    <label class="form-label" >Nom</label>
-                  </div>
-      
-                  <div class="form-outline ">
-                    <input type="text" id="Prénom" class="form-control form-control-lg" />
-                    <label class="form-label" >Prénom</label>
-                  </div>
-      
-      
-                  <div class="form-outline ">
-                    <input type="text" id="email" class="form-control form-control-lg" />
-                    <label class="form-label" for="typeEmailX-2">Email/Pseudo</label>
-                  </div>
+                  <form action="" method="post">
+                    <h1>Mon profil</h1>
+                    <p>${errorString}</p>
 
-                  <div class="form-outline ">
-                    <input type="number" id="Prénom" class="form-control form-control-lg" />
-                    <label class="form-label" >Téléphone</label>
-                  </div>
-                  <div class="form-outline ">
-                    <input type="text" id="Prénom" class="form-control form-control-lg" />
-                    <label class="form-label" >Rue</label>
-                  </div>
-                  <div class="form-outline ">
-                    <input type="text" id="Prénom" class="form-control form-control-lg" />
-                    <label class="form-label" >Code postal</label>
-                  </div>
-                  <div class="form-outline ">
-                    <input type="text" id="Prénom" class="form-control form-control-lg" />
-                    <label class="form-label" >Ville</label>
-                  </div>
-      
-                  <div class="form-outline ">
-                    <input type="password" id="typePasswordX-2" class="form-control form-control-lg" />
-                    <label class="form-label" for="typePasswordX-2">Mot de passe</label>
-                  </div>
-                  <div class="form-outline ">
-                    <input type="password" id="typePasswordX-2" class="form-control form-control-lg" />
-                    <label class="form-label" for="typePasswordX-2">Confirmation</label>
-                  </div>
-      
-                  <h2>Crédit : 640</h2>
-      
-                  <button class="btn btn-success btn-lg btn-block" type="submit">Enregistrer</button>
-                  <button class="btn btn-success btn-lg btn-block" type="submit">Supprimer mon compte</button>
-                  <button class="btn btn-success btn-lg btn-block" type="submit">Retour</button>
-      
+                    <div class="form-outline ">
+                      <input type="text" id="Pseudo" name="pseudo" class="form-control form-control-lg" />
+                      <label class="form-label" >Pseudo</label>
+                    </div>
+
+                    <div class="form-outline ">
+                      <input type="text" id="Nom" name="nom" class="form-control form-control-lg" />
+                      <label class="form-label" >Nom</label>
+                    </div>
+
+                    <div class="form-outline ">
+                      <input type="text" id="Prénom" name="prenom" class="form-control form-control-lg" />
+                      <label class="form-label" >Prénom</label>
+                    </div>
+
+
+                    <div class="form-outline ">
+                      <input type="text" id="email" name="email" class="form-control form-control-lg" />
+                      <label class="form-label" for="email">Email</label>
+                    </div>
+
+                    <div class="form-outline ">
+                      <input type="number" id="Telephone" name="telephone" class="form-control form-control-lg" />
+                      <label class="form-label" for="Telephone">Téléphone</label>
+                    </div>
+                    <div class="form-outline ">
+                      <input type="text" id="Rue" name="rue" class="form-control form-control-lg" />
+                      <label class="form-label" for="Rue">Rue</label>
+                    </div>
+                    <div class="form-outline ">
+                      <input type="text" id="Code_postal" name="code_postal"  class="form-control form-control-lg" />
+                      <label class="form-label" for="Code_postal" >Code postal</label>
+                    </div>
+                    <div class="form-outline ">
+                      <input type="text" id="Ville" name="ville" class="form-control form-control-lg" />
+                      <label class="form-label" for="Ville" >Ville</label>
+                    </div>
+                    <div class="form-outline ">
+                      <input type="password" id="MdpActuel" name="pwdActuel" class="form-control form-control-lg" />
+                      <label class="form-label" for="MdpActuel" >Mot de passe actuel</label>
+                    </div>
+
+                    <div class="form-outline ">
+                      <input type="password" id="Password"  name="password" class="form-control form-control-lg" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"/>
+                      <label class="form-label" for="Password">Mot de passe</label>
+                    </div>
+                    <div class="form-outline ">
+                      <input type="password" id="ConfirmPassword" name="confirmPassword" class="form-control form-control-lg" />
+                      <label class="form-label" for="ConfirmPassword">Confirmation</label>
+                    </div>
+
+                    <h2>Crédit : 640</h2>
+
+                    <button class="btn btn-success btn-lg btn-block" type="submit" name="register">Enregistrer</button>
+                    <button class="btn btn-success btn-lg btn-block" type="submit" name="delete" >Supprimer mon compte</button>
+                    <a class="btn btn-success btn-lg btn-block" href="${pageContext.request.contextPath}/accueil">Retour</a>
+
+                  </form>
+
                 
                  
                 </div>
