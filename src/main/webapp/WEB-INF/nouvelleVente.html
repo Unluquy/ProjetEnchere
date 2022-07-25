@@ -1,5 +1,4 @@
 
-<html>
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -76,7 +75,8 @@
           <div class="card mb-3">
             <div class="card-body">
               <hr>
-              <h2>Retrait</h2>
+              <!--TODO [F] styler errorString-->
+              <h2>Retrait ${errorString}</h2>
               <hr>
               <div class="row">
                 <div class="col-sm-3">
@@ -84,7 +84,7 @@
                 </div>
                 <div class="col-sm-9 text-secondary">
                   <input type="text" class="form-control" id="nom_article" name="nom_article" placeholder="Nom de l'article"
-                         aria-label="Nom de l'article">
+                         aria-label="Nom de l'article" required>
                 </div>
               </div>
               <hr>
@@ -93,7 +93,7 @@
                   <h6 class="mb-0">Description</h6>
                 </div>
                 <div class="col-sm-9 text-secondary">
-                  <input type="text" class="form-control" id="description" name="description" placeholder="Description" aria-label="Description">
+                  <input type="text" class="form-control" id="description" name="description" placeholder="Description" aria-label="Description" required>
                 </div>
               </div>
               <hr>
@@ -102,8 +102,17 @@
                   <h6 class="mb-0">Catégorie</h6>
                 </div>
                 <div class="col-sm-9 text-secondary">
-                  <select class="form-control" id="categorie" name="categorie">
-                    <option value="test">test</option>
+                  <select class="form-control" id="categorie" name="categorie" required>
+
+                    <c:if test="${!empty categories }">
+                          <c:forEach var="l" items="${categories }">
+                            <option name="${l.libelle}">${l.libelle}</option>
+                          </c:forEach>
+                    </c:if>
+                    <c:if test="${empty categories}">
+                      <h3>Pas de listes</h3>
+                    </c:if>
+
                   </select>
                 </div>
               </div>
@@ -124,7 +133,7 @@
                 </div>
                 <div class="col-sm-9 text-secondary">
 
-                  <input type="number" id="prix_initial" name="prix_initial" placeholder="150" aria-label="prixArticle">
+                  <input type="number" id="prix_initial" name="prix_initial" placeholder="150" aria-label="prixArticle" required>
 
                 </div>
               </div>
@@ -134,8 +143,8 @@
                   <h6 class="mb-0">Début de l'enchère</h6>
                 </div>
                 <div class="col-sm-9 text-secondary">
-                  <input type="date" id="date_debut_encheres" name="date_debut_encheres" value="2018-07-22" min="2018-01-01"
-                         max="2018-12-31">
+                  <input type="date" id="date_debut_encheres" name="date_debut_encheres" value="2022-01-01" min="2022-01-01"
+                         max="2023-12-31">
                 </div>
 
               </div>
@@ -145,13 +154,13 @@
                   <h6 class="mb-0">Fin de l'enchères</h6>
                 </div>
                 <div class="col-sm-9 text-secondary">
-                  <input type="date" id="date_fin_encheres" name="date_fin_encheres" value="2018-08-22" min="2018-01-01"
-                         max="2018-12-31">
+                  <input type="date" id="date_fin_encheres" name="date_fin_encheres" value="2022-01-01" min="2022-01-01"
+                         max="2023-12-31" required>
                 </div>
 
               </div>
               <hr>
-              <h2>Retrait</h2>
+              <h2>Retrait (Par defaut: votre adresse)</h2>
               <hr>
               <div class="row">
                 <div class="col-sm-3">

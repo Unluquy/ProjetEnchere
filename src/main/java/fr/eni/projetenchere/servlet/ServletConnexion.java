@@ -62,10 +62,11 @@ public class ServletConnexion extends HttpServlet {
         /*Connect if no error otherwise send back to connect.jsp with error message*/
         if(!hasError){
             System.out.println("Connected");
+            Utilisateur user = EnchereManager.getInstance().connectUser(pseudoSaisie);
 
             HttpSession session = request.getSession();
             System.out.println("[ServletConnexion] " + pseudoSaisie);
-            session.setAttribute("pseudoUser", pseudoSaisie);
+            session.setAttribute("pseudoUser", user.getPseudo());
             response.sendRedirect("accueil" );
         } else {
             request.setAttribute("errorString", errorString);

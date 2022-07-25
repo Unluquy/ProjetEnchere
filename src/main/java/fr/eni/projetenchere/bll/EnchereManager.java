@@ -1,7 +1,12 @@
 package fr.eni.projetenchere.bll;
 
+import fr.eni.projetenchere.bo.ArticleVendu;
+import fr.eni.projetenchere.bo.Categorie;
+import fr.eni.projetenchere.bo.Retrait;
 import fr.eni.projetenchere.bo.Utilisateur;
 import fr.eni.projetenchere.dal.DAOFactory;
+
+import java.util.List;
 
 public class EnchereManager {
 
@@ -21,7 +26,6 @@ public class EnchereManager {
         return DAOFactory.getListeEnchereDAO().connectUser(pseudoSaisie);
     }
 
-
     public Utilisateur getUser(String pseudoSaisie) {
         return DAOFactory.getListeEnchereDAO().getUser(pseudoSaisie);
     }
@@ -33,5 +37,17 @@ public class EnchereManager {
     }
     public void updatePassword(String pseudo, String password, String hash){
         DAOFactory.getListeEnchereDAO().updatePassword(pseudo, password, hash);
+    }
+    public Categorie getCategorie(String libelle) {
+        return DAOFactory.getListeEnchereDAO().getCategorie(libelle);}
+    public List<Categorie> getAllCategories() {
+        return DAOFactory.getListeEnchereDAO().getAllCategories();}
+    public void insertArticle(ArticleVendu article) {
+        DAOFactory.getListeEnchereDAO().insertArticle(article);}
+    public ArticleVendu getArticle(String nom, Utilisateur user) {
+        return DAOFactory.getListeEnchereDAO().getArticle(nom, user);
+    }
+    public void insertRetrait(Retrait retrait){
+        DAOFactory.getListeEnchereDAO().insertRetrait(retrait);
     }
 }

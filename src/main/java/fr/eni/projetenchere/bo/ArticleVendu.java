@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class ArticleVendu {
 
-    private int noAticle;
+    private int noArticle;
     private String nomArticle;
     private String description;
     private Date dateDebutEncheres;
@@ -14,12 +14,12 @@ public class ArticleVendu {
     private Utilisateur user;
     private Categorie categorie;
 
-    public int getNoAticle() {
-        return noAticle;
+    public int getNoArticle() {
+        return noArticle;
     }
 
-    public void setNoAticle(int noAticle) {
-        this.noAticle = noAticle;
+    public void setNoArticle(int noArticle) {
+        this.noArticle = noArticle;
     }
 
     public String getNomArticle() {
@@ -87,10 +87,13 @@ public class ArticleVendu {
     }
 
     public ArticleVendu() {
+        this.user = new Utilisateur();
+        this.categorie = new Categorie();
     }
 
-    public ArticleVendu(int noAticle, String nomArticle, String description, Date dateDebutEncheres, Date dateFinEncheres, int prixInitial, int prixVente, Utilisateur user, Categorie categorie) {
-        this.noAticle = noAticle;
+    public ArticleVendu(int noArticle, String nomArticle, String description, Date dateDebutEncheres, Date dateFinEncheres, int prixInitial, int prixVente, Utilisateur user, Categorie categorie) {
+        this();
+        this.noArticle = noArticle;
         this.nomArticle = nomArticle;
         this.description = description;
         this.dateDebutEncheres = dateDebutEncheres;
