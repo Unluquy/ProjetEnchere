@@ -40,10 +40,13 @@
 <div class="full-page-green"></div>
 <div class="ham-menu">
   <ul class="centre-text bold-text">
-    <li>Enchères</li>
-    <li>Vendre un article</li>
-    <li>Mon profil</li>
-    <li>Déconnexion</li>
+    <a class="color-a" href="${pageContext.request.contextPath}/accueil">
+      <li>Enchères</li></a>
+    <a class="color-a" href="${pageContext.request.contextPath}/nouvelleVente">
+      <li>Vendre un article</li></a>
+    <a class="color-a" href="${pageContext.request.contextPath}/profil">
+      <li>Mon profil</li></a>
+    <li class="color-a">Déconnexion</li>
   </ul>
 </div>
 <!-- Fin Navigation -->
@@ -64,7 +67,7 @@
               <img src= ${photoArticle} alt="Admin" class="rounded-circle"
                    width="150">
               <div class="mt-3">
-                <h4>${pseudo}</h4>
+                <h4>${pseudo} a remporté l'enchere</h4>
 
 
 
@@ -95,22 +98,14 @@
               </div>
             </div>
             <hr>
-            <div class="row">
-              <div class="col-sm-3">
-                <h6 class="mb-0">Catégorie</h6>
-              </div>
-              <div class="col-sm-9 text-secondary">
-                ${categorie}
-              </div>
-            </div>
-            <hr>
+
             <div class="row">
               <div class="col-sm-3">
                 <h6 class="mb-0">Meilleure offre</h6>
               </div>
               <div class="col-sm-9 text-secondary">
 
-                ${prix_vente}
+                ${prix_vente} pts par ${pseudo}
               </div>
             </div>
             <hr>
@@ -146,32 +141,20 @@
               </div>
             </div>
             <hr>
-
-
-
-
-            <form action="" method="post">
-
-              <div class="row">
-
-                <div class="col-sm-12">
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Ma proposition</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      <input type="number" id="prix_initial" name="prix_initial" placeholder="150" aria-label="prixArticle">
-
-                    </div>
-
-                  </div>
-                  <a class="btn btn-info " target="__blank"
-                     href="">Enchérir</a>
-
-                </div>
-
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Vendeur</h6>
               </div>
-            </form>
+              <div class="col-sm-9 text-secondary">
+                ${pseudo}
+              </div>
+            </div>
+            <hr>
+
+            <a class="btn btn-info " target="__blank"
+               href="">Retrait effectué</a>
+
+
           </div>
         </div>
 
