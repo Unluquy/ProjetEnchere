@@ -54,14 +54,15 @@ label[for="ham-menu"] {
   border: 2px solid var(--border-color);
 }
 .ham-menu {
-  width: 25vw;
+  width: 50%;
   height: 100%;
   position: fixed;
   top: 0;
+  left: 0;
   visibility: hidden;
   transform: translate(-110%);
   z-index: 998;
-  background-color: var(--lightest-green);
+  background-color: #117a8b;
   transition: 1s;
   display: flex;
   justify-content: center;
@@ -95,7 +96,7 @@ label[for="ham-menu"] {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: var(--dark-green);
+  background-color: #9ce3f0;
   z-index: 997;
   opacity: 0;
   visibility: hidden;
@@ -233,10 +234,13 @@ body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
   }
-  
+.color-a{
+  color: black !important;
+  font-size: 4em !important;
+}
   .topnav{
     overflow: hidden;
-    background-color: #117a8b;
+    background-color: #117a8b !important;
     display: flex;
     align-items: center;
     height: 55px;

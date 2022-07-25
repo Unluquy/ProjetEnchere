@@ -40,6 +40,10 @@ body {
 .color{
     background-color: #117a8b;
 }
+.color-a{
+    color: black !important;
+    font-size: 4em !important;
+}
   .topnav a, form > button{
     float: left;
     display: flex;

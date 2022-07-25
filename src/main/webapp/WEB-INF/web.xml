@@ -59,6 +59,32 @@
         <url-pattern>/nouvelleVente</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>ServletDetailVente</servlet-name>
+        <servlet-class>fr.eni.projetenchere.servlet.ServletDetailVente</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletDetailVente</servlet-name>
+        <url-pattern>/detailVente</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ServletVenteRemporte</servlet-name>
+        <servlet-class>fr.eni.projetenchere.servlet.ServletVenteRemporte</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletVenteRemporte</servlet-name>
+        <url-pattern>/venteRemporte</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name> ServletVentePerdu</servlet-name>
+        <servlet-class>fr.eni.projetenchere.servlet.ServletVentePerdu</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name> ServletVentePerdu</servlet-name>
+        <url-pattern>/ventePerdu</url-pattern>
+    </servlet-mapping>
 
     <welcome-file-list>
         <welcome-file>accueil</welcome-file>  <!-- nom d'un url pattern -->
