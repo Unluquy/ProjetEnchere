@@ -14,7 +14,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-    <link href="${pageContext.request.contextPath }/css/ventePerdu.css" rel="stylesheet" type="text/css">
+
     <link href="${pageContext.request.contextPath }/css/navBar.css" rel="stylesheet" type="text/css">
 
     <title>Vente perdu</title>
