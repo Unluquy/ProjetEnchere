@@ -89,4 +89,18 @@
     <welcome-file-list>
         <welcome-file>accueil</welcome-file>  <!-- nom d'un url pattern -->
     </welcome-file-list>
+
+    <servlet>
+        <servlet-name> ServletManipulationCookie</servlet-name>
+        <servlet-class>fr.eni.projetenchere.servlet.ServletManipulationCookie</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name> ServletManipulationCookie</servlet-name>
+        <url-pattern>/ManipulationCookie</url-pattern>
+    </servlet-mapping>
+
+    <session-config>
+        <session-timeout>5</session-timeout>
+    </session-config>
+
 </web-app>
