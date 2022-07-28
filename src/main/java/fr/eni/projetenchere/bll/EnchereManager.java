@@ -1,11 +1,9 @@
 package fr.eni.projetenchere.bll;
 
-import fr.eni.projetenchere.bo.ArticleVendu;
-import fr.eni.projetenchere.bo.Categorie;
-import fr.eni.projetenchere.bo.Retrait;
-import fr.eni.projetenchere.bo.Utilisateur;
+import fr.eni.projetenchere.bo.*;
 import fr.eni.projetenchere.dal.DAOFactory;
 
+import java.sql.Date;
 import java.util.List;
 
 public class EnchereManager {
@@ -26,8 +24,8 @@ public class EnchereManager {
         return DAOFactory.getListeEnchereDAO().connectUser(pseudoSaisie);
     }
 
-    public Utilisateur getUser(String pseudoSaisie) {
-        return DAOFactory.getListeEnchereDAO().getUser(pseudoSaisie);
+    public Utilisateur getUser(String pseudoSaisie, int no_user) {
+        return DAOFactory.getListeEnchereDAO().getUser(pseudoSaisie, no_user);
     }
     public void deleteUser(String pseudoSaisie) {
         DAOFactory.getListeEnchereDAO().deleteUser(pseudoSaisie);
@@ -38,8 +36,10 @@ public class EnchereManager {
     public void updatePassword(String pseudo, String password, String hash){
         DAOFactory.getListeEnchereDAO().updatePassword(pseudo, password, hash);
     }
-    public Categorie getCategorie(String libelle) {
-        return DAOFactory.getListeEnchereDAO().getCategorie(libelle);}
+    public Categorie getCategorie(String libelle, int no_categorie) {
+        return DAOFactory.getListeEnchereDAO().getCategorie(libelle, no_categorie);}
+    public List<ArticleVendu> getAllArticles() {
+        return DAOFactory.getListeEnchereDAO().getAllArticles();}
     public List<Categorie> getAllCategories() {
         return DAOFactory.getListeEnchereDAO().getAllCategories();}
     public void insertArticle(ArticleVendu article) {
@@ -47,7 +47,19 @@ public class EnchereManager {
     public ArticleVendu getArticle(String nom, Utilisateur user) {
         return DAOFactory.getListeEnchereDAO().getArticle(nom, user);
     }
+    public ArticleVendu getArticleByNo(int number){
+        return DAOFactory.getListeEnchereDAO().getArticleByNo(number);
+    }
+    public Retrait getRetrait(int number){
+        return DAOFactory.getListeEnchereDAO().getRetrait(number);
+    }
     public void insertRetrait(Retrait retrait){
         DAOFactory.getListeEnchereDAO().insertRetrait(retrait);
     }
+
+    public void insertEnchere(ArticleVendu article, Utilisateur user, int montant) {DAOFactory.getListeEnchereDAO().insertEnchere(article,user,montant);}
+    public void updateEnchere(ArticleVendu article, Utilisateur user, int montant) {DAOFactory.getListeEnchereDAO().updateEnchere(article,user,montant);}
+
+    public Enchere getEnchere(int noArticle){return DAOFactory.getListeEnchereDAO().getEnchere(noArticle);}
+    public List<Enchere> getAllEnchereUser(Utilisateur user){return DAOFactory.getListeEnchereDAO().getAllEnchereUser(user);}
 }

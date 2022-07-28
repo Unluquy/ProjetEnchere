@@ -45,7 +45,7 @@ public class ServletInscription extends HttpServlet {
         /*If nothing empty then put check if user is in DB*/
         if (pseudoSaisie.length() != 0 && prenomSaisie.length() != 0 && nomSaisie.length() != 0 && emailSaisie.length() != 0 && rueSaisie.length() != 0 && codePostalSaisie.length() != 0 && villeSaisie.length() != 0 && motDePasseSaisie.length() != 0 && motDePasseValidationSaisie.equals(motDePasseSaisie)){
 
-            Utilisateur userCheck = EnchereManager.getInstance().getUser(pseudoSaisie);
+            Utilisateur userCheck = EnchereManager.getInstance().getUser(pseudoSaisie, -1);
             String salt = null;
             try {
                 salt = getSalt();
@@ -93,6 +93,8 @@ public class ServletInscription extends HttpServlet {
             request.setAttribute("errorString", errorString);
             RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/inscription.jsp");
             rd.forward(request, response);
+        } else {
+            response.sendRedirect("accueil" );
         }
 
     }

@@ -19,7 +19,7 @@ public class ServletProfil extends HttpServlet {
         HttpSession session = request.getSession();
         System.out.println("[ServletProfil] Pseudo User session " + session.getAttribute("pseudoUser"));
 
-        Utilisateur user = EnchereManager.getInstance().getUser((String) session.getAttribute("pseudoUser"));
+        Utilisateur user = EnchereManager.getInstance().getUser((String) session.getAttribute("pseudoUser"), -1);
         if (user != null){
             System.out.println("[ServletProfil] User " + user);
             request.setAttribute("pseudo", user.getPseudo());

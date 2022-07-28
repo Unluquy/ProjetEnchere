@@ -11,19 +11,14 @@ function check() {
 }
 
 function checkBoxVente() {
+    document.getElementById("CheckEncheresOuvertes").disabled =true
+    document.getElementById("CheckEncheresEnCours").disabled =true
+    document.getElementById("CheckEncheresRemportees").disabled =true
 
     document.getElementById("CheckVentesEnCours").disabled =false
     document.getElementById("CheckVentesNonDebutees").disabled =false
     document.getElementById("CheckVentesTerminees").disabled =false
 
-
-    document.getElementById("CheckEncheresOuvertes").disabled =true
-    document.getElementById("CheckEncheresEnCours").disabled =true
-    document.getElementById("CheckEncheresRemportees").disabled =true
-
-    document.getElementById("CheckEncheresOuvertes").checked =false
-    document.getElementById("CheckEncheresEnCours").checked =false
-    document.getElementById("CheckEncheresRemportees").checked =false
 
 
 }

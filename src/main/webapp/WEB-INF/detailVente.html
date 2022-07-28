@@ -66,12 +66,6 @@
                         <div class="d-flex flex-column align-items-center text-center">
                             <img src= ${photoArticle} alt="Admin" class="rounded-circle"
                                  width="150">
-                            <div class="mt-3">
-                                <h4>${pseudo}</h4>
-
-
-
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -80,6 +74,28 @@
             <div class="col-md-8">
                 <div class="card mb-3">
                     <div class="card-body">
+
+                        <% if(session.getAttribute("pseudoUser") == null){%>
+
+                        <% } else if(session.getAttribute("enchere") != null &&
+                        request.getAttribute("encheriseur").equals(session.getAttribute("pseudoUser")) &&
+                        request.getAttribute("fin") != null ){%>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h2 class="mb-0">Vous remportez l'enchere !</h2>
+                                </div>
+                            </div>
+                        <% } else if(session.getAttribute("enchere") != null &&
+                        !request.getAttribute("encheriseur").equals(session.getAttribute("pseudoUser")) &&
+                        request.getAttribute("fin") != null) {%>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h2 class="mb-0">${encheriseur} remporte l'enchere</h2>
+                            </div>
+                        </div>
+                        <% }%>
+
+
                         <div class="row">
                             <div class="col-sm-3">
                                 <h6 class="mb-0">Nom de l'article</h6>
@@ -112,8 +128,11 @@
                                 <h6 class="mb-0">Meilleure offre</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-
-                                ${prix_vente}
+                                <% if(request.getAttribute("prix_vente") == null){%>
+                                    Aucune enchere
+                                <% } else {%>
+                                    ${prix_vente} par ${encheriseur}
+                                <% }%>
                             </div>
                         </div>
                         <hr>
@@ -122,7 +141,6 @@
                                 <h6 class="mb-0">Mise à prix</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-
                                 ${prix_initial}
                             </div>
                         </div>
@@ -138,8 +156,6 @@
 
                         </div>
                         <hr>
-
-                        <hr>
                         <div class="row">
                             <div class="col-sm-3">
                                 <h6 class="mb-0">Retrait</h6>
@@ -149,9 +165,18 @@
                             </div>
                         </div>
                         <hr>
-
-
-
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Vendeur</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                ${vendeur}
+                            </div>
+                        </div>
+                        <% if(session.getAttribute("pseudoUser") == null){%>
+                            Vous ne pouvez pas encherir
+                        <% } else {%>
+                        <hr>
 
                         <form action="" method="post">
 
@@ -164,17 +189,20 @@
                                         </div>
                                         <div class="col-sm-9 text-secondary">
                                             <input type="number" id="prix_initial" name="prix_initial" placeholder="150" aria-label="prixArticle">
-
+                                            ${errorString}
                                         </div>
 
                                     </div>
-                                    <a class="btn btn-info " target="__blank"
-                                       href="">Enchérir</a>
+                                    <button class="btn btn-info " name="submitEnchere"
+                                            type="submit">Enchérir</button>
 
                                 </div>
 
                             </div>
                         </form>
+                        <% }%>
+
+
                     </div>
                 </div>
 

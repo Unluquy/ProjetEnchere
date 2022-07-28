@@ -24,7 +24,7 @@ public class ServletModifProfil extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-        Utilisateur user = EnchereManager.getInstance().getUser((String) session.getAttribute("pseudoUser"));
+        Utilisateur user = EnchereManager.getInstance().getUser((String) session.getAttribute("pseudoUser"), -1);
 
         String errorString = "";
         boolean hasError = false;

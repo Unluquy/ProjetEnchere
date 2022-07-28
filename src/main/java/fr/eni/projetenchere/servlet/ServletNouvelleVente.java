@@ -28,7 +28,7 @@ public class ServletNouvelleVente extends HttpServlet {
 
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/nouvelleVente.jsp");
 
-        /*TODO Setup categories*/
+
         request.setAttribute("categories", EnchereManager.getInstance().getAllCategories());
         rd.forward(request,response);
     }
@@ -36,7 +36,7 @@ public class ServletNouvelleVente extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-        Utilisateur user = EnchereManager.getInstance().getUser((String) session.getAttribute("pseudoUser"));
+        Utilisateur user = EnchereManager.getInstance().getUser((String) session.getAttribute("pseudoUser"), -1);
         request.setAttribute("pseudo", session.getAttribute("pseudoUser"));
 
         boolean hasError = false;
@@ -44,7 +44,7 @@ public class ServletNouvelleVente extends HttpServlet {
 
         /*Create object*/
         ArticleVendu article = new ArticleVendu();
-        Categorie categorie = EnchereManager.getInstance().getCategorie((String) request.getParameter("categorie"));
+        Categorie categorie = EnchereManager.getInstance().getCategorie((String) request.getParameter("categorie"), -1);
         Retrait retrait = new Retrait();
 
 
@@ -117,10 +117,9 @@ public class ServletNouvelleVente extends HttpServlet {
             rd.forward(request,response);
         } else {
             EnchereManager.getInstance().insertArticle(article);
-
             retrait.setArticle(EnchereManager.getInstance().getArticle(article.getNomArticle(),user));
-            System.out.println(EnchereManager.getInstance().getArticle(article.getNomArticle(),user));
             EnchereManager.getInstance().insertRetrait(retrait);
+            response.sendRedirect("accueil" );
         }
 
 

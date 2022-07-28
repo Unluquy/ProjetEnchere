@@ -109,7 +109,7 @@
 
                     <c:if test="${!empty categories }">
                           <c:forEach var="l" items="${categories }">
-                            <option name="${l.libelle}">${l.libelle}</option>
+                            <option name="${l.noCategorie}">${l.libelle}</option>
                           </c:forEach>
                     </c:if>
                     <c:if test="${empty categories}">
@@ -136,7 +136,7 @@
                 </div>
                 <div class="col-sm-9 text-secondary">
 
-                  <input type="number" id="prix_initial" name="prix_initial" placeholder="150" aria-label="prixArticle" required>
+                  <input type="number" id="prix_initial" name="prix_initial" placeholder="150" aria-label="prixArticle" min="1" required>
 
                 </div>
               </div>
