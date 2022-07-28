@@ -5,6 +5,7 @@
       <map>
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/accueil.html" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/connect.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/connexion.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/listes.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/navBar.html" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/panier.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF" />

@@ -15,6 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <link href="${pageContext.request.contextPath }/css/styleAccueil.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath }/css/navFinal.css" rel="stylesheet" type="text/css">
 
     <title>Accueil</title>
 
@@ -24,26 +25,29 @@
 
 <header>
     <div class="topnav" id="myTopnav">
-        <a href="${pageContext.request.contextPath}/venteRemporte" class="color">ENI-Enchères</a>
+        <a href="${pageContext.request.contextPath}/accueil" class="color">ENI-Enchères</a>
 <%--Si un utilisateur est connecte alors afficher les liens sinon afficher S'inscrire / Se connecter--%>
         <%
             if (session.getAttribute("pseudoUser") != null || session.getAttribute("pseudoUser")=="") {
 
         %>
+
         <div style="float:right !important;display:flex;align-items:center;">
-            <a href="#news">Enchères</a>
-            <a href="${pageContext.request.contextPath}/nouvelleVente">Vendre un article</a>
-            <a href="${pageContext.request.contextPath}/profil">Mon profil</a>
+            <a class="color-a" href="#news">Enchères</a>
+            <a  class="color-a" href="${pageContext.request.contextPath}/nouvelleVente">Vendre un article</a>
+            <a  class="color-a" href="${pageContext.request.contextPath}/profil">Mon profil</a>
             <form method="post"><button name="disconnect" type="submit" style="align-items:center;">Déconnexion</button></form>
         </div>
 
         <%
         }else{
         %>
+
         <div style="float:right !important;">
-            <a href="${pageContext.request.contextPath}/inscription">S'inscrire</a>
-            <a href="${pageContext.request.contextPath}/connexion">Se connecter</a>
+            <a  class="color-a" href="${pageContext.request.contextPath}/inscription">S'inscrire</a>
+            <a  class="color-a" href="${pageContext.request.contextPath}/connexion">Se connecter</a>
         </div>
+
         <%
             }
         %>

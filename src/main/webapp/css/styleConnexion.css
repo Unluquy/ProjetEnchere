@@ -22,15 +22,14 @@ body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
   }
-  
+  .button-color{
+      background-color: #117a8b !important;
+  }
   .topnav {
     overflow: hidden;
-    background-color: #333;
+    background-color: #117a8b !important;
   }
-.color-a{
-    color: black !important;
-    font-size: 4em !important;
-}
+
   .topnav a {
     float: left;
     display: block;
