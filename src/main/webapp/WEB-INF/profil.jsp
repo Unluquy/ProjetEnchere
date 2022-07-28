@@ -9,7 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <link href="${pageContext.request.contextPath }/css/styleProfil.css" rel="stylesheet" type="text/css">
+
     <link href="${pageContext.request.contextPath }/css/navBar.css" rel="stylesheet" type="text/css">
     <title>Profil</title>
 </head>
