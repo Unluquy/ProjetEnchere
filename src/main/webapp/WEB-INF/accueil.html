@@ -179,7 +179,7 @@
                                  (sessionScope.EncheresRemportees != null && l.dateFinEncheres.compareTo(sessionScope.dateNow) <= 0 && e.user.pseudo == sessionScope.pseudoUser)
                                  ) &&
                                 (sessionScope.categorieSelected.equals('Tous') || sessionScope.categorieSelected.equals(l.categorie.libelle)) &&
-                                (l.nomArticle.toLowerCase().contains(sessionScope.oSaisie).toLowerCase())
+                                (l.nomArticle.toLowerCase().contains(sessionScope.oSaisie.toLowerCase()))
                                  }">
                                 <div class="card" style="width: 18rem;">
                                     <img src="${pageContext.request.contextPath }/image/pc.jpg" class="card-img-top" alt="...">
