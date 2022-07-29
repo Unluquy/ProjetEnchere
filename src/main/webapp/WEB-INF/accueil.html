@@ -8,23 +8,12 @@
 
 </head>
 <body>
-<!--
-    <div class="topnav" id="myTopnav">
-        <a href="#home" class="active">ENI-Enchères</a>
-      <a href="#news">S'inscrire</a>
-        <a href="#">Se connecter</a>
-        
-        <h1>Liste des enchères</h1>
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-          <i class="fa fa-bars"></i>
-        </a>
-      </div>
--->
-
       <div class="container">
         <form method="get">
+
           <fieldset>    
             <div class="input-group">
+              <!--Liste deroulante-->
               <div class="input-group-prepend">
                 <select id="oCategorie" name="CategorieFiltre" class="custom-select  color text-white">
                     <c:if test="${!empty categories }">
@@ -37,16 +26,23 @@
                     </c:if>
                 </select>
               </div>
+
+              <!--Champs de recherche-->
               <input id="oSaisie" name="oSaisie" type="text" class="form-control" aria-label="Saisie de mots clés" placeholder="Mot(s) clé(s)">
+
               <div class="input-group-append">
                 <button class="btn color" type="submit" name="submitFilter">Recherche</button>
               </div>
+
             </div>
           </fieldset>
 
             <div class="containerCheck">
 
+                <!-- * Field achat-->
                 <div class="check">
+
+                    <!--radio-->
                     <div class="form-check">
                         <%
                         if(session.getAttribute("radioAchats") != null){
@@ -65,7 +61,7 @@
                         </label>
                     </div>
 
-                    <!-- Checked checkbox -->
+                    <!--CheckBox-->
                     <div class="form-check">
                         <%
                             if(session.getAttribute("EncheresOuvertes") != null){
@@ -76,7 +72,7 @@
                         <%} %>
                         <label class="form-check-label" for="CheckEncheresOuvertes">enchères ouvertes</label>
                     </div>
-                    <!-- Default checkbox -->
+
                     <div class="form-check">
                         <%
                         if(session.getAttribute("EncheresEnCours") != null){
@@ -87,7 +83,7 @@
                         <%} %>
                         <label class="form-check-label" for="CheckEncheresEnCours">mes enchères en cours</label>
                     </div>
-                    <!-- Default checkbox -->
+
                     <div class="form-check">
                         <%
                         if(session.getAttribute("EncheresRemportees") != null){
@@ -100,8 +96,10 @@
                     </div>
 
                 </div>
-<!-- * VENTES -->
+
+                <!-- * VENTES -->
                 <div class="check">
+                    <!--Radio-->
                     <div class="form-check">
                         <%
                         if(session.getAttribute("radioVentes") != null){
@@ -120,7 +118,7 @@
                         </label>
                     </div>
 
-                    <!-- Default checkbox -->
+                    <!-- CheckBox -->
                     <div class="form-check">
                         <%
                         if(session.getAttribute("VentesEnCours") != null){
@@ -132,7 +130,6 @@
                         <label class="form-check-label" for="CheckVentesEnCours">mes ventes en cours</label>
                     </div>
 
-                    <!-- Default checkbox -->
                     <div class="form-check">
                         <%
                         if(session.getAttribute("VentesNonDebutees") != null){
@@ -144,7 +141,7 @@
 
                         <label class="form-check-label" for="CheckVentesNonDebutees">ventes non débutées </label>
                     </div>
-                    <!-- Default checkbox -->
+
                     <div class="form-check">
                         <%
                         if(session.getAttribute("VentesTerminees") != null){
@@ -157,20 +154,22 @@
                         <label class="form-check-label" for="CheckVentesTerminees">ventes terminées </label>
                     </div>
                 </div>
+
             </div>
         </form>
       </div>
 
 
 
-
  <div class="containerCard">
 
     <c:choose>
-        <c:when test="${sessionScope.radioAchats != null}">
 
+        <c:when test="${sessionScope.radioAchats != null}">
             <c:choose>
+
                 <c:when test="${!empty articlesList && !empty enchereList}">
+
                     <c:forEach var="e" items="${enchereList }">
                         <c:forEach var="l" items="${articlesList }">
                             <c:if test="${(e.article.noArticle == l.noArticle || sessionScope.EncheresOuvertes != null) &&
@@ -178,10 +177,12 @@
                                  (sessionScope.EncheresOuvertes   != null && l.dateFinEncheres.compareTo(sessionScope.dateNow) > 0 && l.dateDebutEncheres.compareTo(sessionScope.dateNow) <= 0 ) ||
                                  (sessionScope.EncheresEnCours    != null && l.dateDebutEncheres.compareTo(sessionScope.dateNow) <= 0 && l.dateFinEncheres.compareTo(sessionScope.dateNow) > 0 && e.user.pseudo == sessionScope.pseudoUser) ||
                                  (sessionScope.EncheresRemportees != null && l.dateFinEncheres.compareTo(sessionScope.dateNow) <= 0 && e.user.pseudo == sessionScope.pseudoUser)
-                                 )
+                                 ) &&
+                                (sessionScope.categorieSelected.equals('Tous') || sessionScope.categorieSelected.equals(l.categorie.libelle)) &&
+                                (l.nomArticle.toLowerCase().contains(sessionScope.oSaisie).toLowerCase())
                                  }">
                                 <div class="card" style="width: 18rem;">
-                                    <img src="${pageContext.request.contextPath }${photoArticle}" class="card-img-top" alt="...">
+                                    <img src="${pageContext.request.contextPath }/image/pc.jpg" class="card-img-top" alt="...">
                                     <div class="card-body">
                                         <a href="${pageContext.request.contextPath}/detailVente?id=${l.noArticle}" class="card-title">Nom : ${l.nomArticle}</a>
                                         <p class="card-text">Prix : ${l.prixInitial}</p>
@@ -193,17 +194,20 @@
                         </c:forEach>
                     </c:forEach>
                 </c:when>
+
                 <c:otherwise>
                     <c:if test="${!empty articlesList}">
                         <c:forEach var="l" items="${articlesList }">
                             <c:if test="${(sessionScope.EncheresOuvertes != null) &&
                                  (
-                                 (sessionScope.EncheresOuvertes != null && l.dateFinEncheres.compareTo(sessionScope.dateNow) >= 0 && l.dateDebutEncheres.compareTo(sessionScope.dateNow) < 0 ) ||
+                                 (sessionScope.EncheresOuvertes != null && l.dateFinEncheres.compareTo(sessionScope.dateNow) > 0 && l.dateDebutEncheres.compareTo(sessionScope.dateNow) <= 0 ) ||
                                  (sessionScope.EncheresOuvertes == null && sessionScope.EncheresEnCours == null && sessionScope.EncheresRemportees == null )
-                                 )
+                                 ) &&
+                                (sessionScope.categorieSelected.equals('Tous') || sessionScope.categorieSelected.equals(l.categorie.libelle)) &&
+                                (l.nomArticle.toLowerCase().contains(sessionScope.oSaisie.toLowerCase()))
                                  }">
                                 <div class="card" style="width: 18rem;">
-                                    <img src="${pageContext.request.contextPath }${photoArticle}" class="card-img-top" alt="...">
+                                    <img src="${pageContext.request.contextPath }/image/pc.jpg" class="card-img-top" alt="...">
                                     <div class="card-body">
                                         <a href="${pageContext.request.contextPath}/detailVente?id=${l.noArticle}" class="card-title">Nom : ${l.nomArticle}</a>
                                         <p class="card-text">Prix : ${l.prixInitial}</p>
@@ -222,20 +226,22 @@
 
         </c:when>
 
+
         <c:otherwise>
             <c:if test="${!empty articlesList && sessionScope.pseudoUser != null}">
                 <c:forEach var="l" items="${articlesList }">
-                    <!--TODO Categories tri-->
                     <c:if test="${l.user.pseudo == sessionScope.pseudoUser &&
                                  (
                                  (sessionScope.VentesEnCours        != null && l.dateFinEncheres.compareTo(sessionScope.dateNow) > 0 && l.dateDebutEncheres.compareTo(sessionScope.dateNow) <= 0 ) ||
                                  (sessionScope.VentesNonDebutees    != null && l.dateDebutEncheres.compareTo(sessionScope.dateNow) > 0 ) ||
                                  (sessionScope.VentesTerminees      != null && l.dateFinEncheres.compareTo(sessionScope.dateNow) <= 0 )  ||
                                  (sessionScope.VentesEnCours == null && sessionScope.VentesNonDebutees == null && sessionScope.VentesTerminees == null )
-                                 )
+                                 ) &&
+                                (sessionScope.categorieSelected.equals('Tous') || sessionScope.categorieSelected.equals(l.categorie.libelle)) &&
+                                (l.nomArticle.toLowerCase().contains(sessionScope.oSaisie.toLowerCase()))
                                  }">
                         <div class="card" style="width: 18rem;">
-                            <img src="${pageContext.request.contextPath }${photoArticle}" class="card-img-top" alt="...">
+                            <img src="${pageContext.request.contextPath }/image/pc.jpg" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <a href="${pageContext.request.contextPath}/detailVente?id=${l.noArticle}" class="card-title">Nom : ${l.nomArticle}</a>
                                 <p class="card-text">Prix : ${l.prixInitial}</p>
@@ -248,7 +254,7 @@
                 </c:forEach>
             </c:if>
             <c:if test="${empty articlesList || sessionScope.pseudoUser == null}">
-                <h3>Pas d'encheres en cours</h3>
+                <h3>Pas de vente en cours</h3>
             </c:if>
 
         </c:otherwise>
@@ -256,6 +262,7 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+ </div>
 </body>
 
 </html>

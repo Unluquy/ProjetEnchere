@@ -28,27 +28,30 @@ public class ServletNouvelleVente extends HttpServlet {
 
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/nouvelleVente.jsp");
 
-
+        /*initialise les donnees de la liste deroulante*/
         request.setAttribute("categories", EnchereManager.getInstance().getAllCategories());
         rd.forward(request,response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        /*Initialise la session et recupere les infos de l'utilisateur*/
         HttpSession session = request.getSession();
         Utilisateur user = EnchereManager.getInstance().getUser((String) session.getAttribute("pseudoUser"), -1);
         request.setAttribute("pseudo", session.getAttribute("pseudoUser"));
 
+        /*Initialise la gestion d'erreurs*/
         boolean hasError = false;
         String errorString = "";
 
-        /*Create object*/
+    /*Begin article*/
+        /*Creer les objets*/
         ArticleVendu article = new ArticleVendu();
         Categorie categorie = EnchereManager.getInstance().getCategorie((String) request.getParameter("categorie"), -1);
         Retrait retrait = new Retrait();
 
 
-        /*set article*/
+        /*Recuperer les infos obligatoires et gestion derreur*/
         if(request.getParameter("nom_article").isEmpty() || request.getParameter("description").isEmpty() || request.getParameter("prix_initial").isEmpty()){
             hasError = true;
             errorString = "Veuillez remplir les champs requis";
@@ -57,6 +60,8 @@ public class ServletNouvelleVente extends HttpServlet {
             article.setDescription(request.getParameter("description"));
             article.setPrixInitial(Integer.parseInt(request.getParameter("prix_initial")));
         }
+
+        /*Recuperer les dates debut et fin et gestion d'erreur*/
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         try {
             Date formatDateDebut = format.parse(request.getParameter("date_debut_encheres"));
@@ -84,9 +89,9 @@ public class ServletNouvelleVente extends HttpServlet {
         }
         article.setUser(user);
         article.setCategorie(categorie);
-        /*end article*/
+    /*End article*/
 
-        /*retrait*/
+    /*Begin retrait*/
         if (!request.getParameter("rue").isEmpty()) {
             retrait.setRue(request.getParameter("rue"));
         } else {
@@ -103,13 +108,15 @@ public class ServletNouvelleVente extends HttpServlet {
         } else {
             retrait.setVille(user.getVille());
         }
+    /*End retrait*/
 
+        /*Verif si article existe deja*/
         if(EnchereManager.getInstance().getArticle(article.getNomArticle(),user) != null){
             hasError = true;
             errorString = "Duplication d'enchere";
         }
 
-        /*Create Article vendu if no error*/
+        /*Cree l'article si aucune erreurr*/
         if(hasError){
             request.setAttribute("errorString", errorString);
             request.setAttribute("categories", EnchereManager.getInstance().getAllCategories());

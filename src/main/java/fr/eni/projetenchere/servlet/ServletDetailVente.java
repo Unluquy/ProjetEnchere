@@ -78,7 +78,7 @@ public class ServletDetailVente extends HttpServlet {
         Enchere enchere = EnchereManager.getInstance().getEnchere(Integer.parseInt(request.getParameter("id")));
 
         /*Gestions erreurs*/
-        if (user != null) {
+        if (user == null) {
             errorString = "Veuillez vous connecter pour encherir";
         } else if (montant > article.getPrixInitial()){
             errorString = "Le montant doit etre superieur au prix initial pour encherir";
@@ -96,7 +96,6 @@ public class ServletDetailVente extends HttpServlet {
             EnchereManager.getInstance().updateEnchere(article, user, montant);
             hasError = false;
         }
-
 
         if(!hasError){
             response.sendRedirect("accueil" );

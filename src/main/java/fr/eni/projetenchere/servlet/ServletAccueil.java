@@ -39,15 +39,20 @@ public class ServletAccueil extends HttpServlet {
         Utilisateur user = EnchereManager.getInstance().getUser((String) session.getAttribute("pseudoUser"),-1);
         List<ArticleVendu> articlesList = EnchereManager.getInstance().getAllArticles();
         List<Enchere> enchereList = user != null ? EnchereManager.getInstance().getAllEnchereUser(user): new ArrayList<Enchere>();
+        System.out.println(articlesList);
         request.setAttribute("categories", EnchereManager.getInstance().getAllCategories());
         request.setAttribute("articlesList", articlesList);
         request.setAttribute("enchereList", enchereList);
+        request.setAttribute("categorieSelected ", "Tous");
 
 
         if(request.getParameter("submitFilter") != null){
             String[] checkedBoxAchats = request.getParameterValues("CheckEncheres") != null ? request.getParameterValues("CheckEncheres") : new String[]{}; /*Insert ceux qui sont actifs*/
             String[] checkedBoxVendus = request.getParameterValues("CheckVentes")   != null ? request.getParameterValues("CheckVentes") : new String[]{}; /*Insert ceux qui sont actifs*/
             String radioFiltre = request.getParameter("radioFiltre");
+            String recherche = request.getParameter("oSaisie");
+
+            session.setAttribute("oSaisie", recherche);
 
 
             session.setAttribute("EncheresOuvertes",null);
@@ -95,7 +100,6 @@ public class ServletAccueil extends HttpServlet {
 
         if(request.getParameter("disconnect") != null){
             session.setAttribute("pseudoUser", null);
-
         }
 
         request.setAttribute("categories", EnchereManager.getInstance().getAllCategories());
